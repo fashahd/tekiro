@@ -1,6 +1,6 @@
 
 		<main id="main" class="">
-            <div id="content" role="main">
+            <div id="content-home" role="main">
                 <div class="slider-wrapper relative " id="slider-479573776" >
                     <div class="slider slider-nav-circle slider-nav-normal slider-nav-light slider-style-normal slider-show-nav"
                         data-flickity-options='{

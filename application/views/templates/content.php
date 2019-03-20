@@ -45,28 +45,7 @@
                         </div>
 					    <!-- Right Elements -->
 					    <div class="flex-col hide-for-medium flex-right">
-                            <ul class="header-nav header-nav-main nav nav-right  nav-size-large nav-spacing-xlarge nav-uppercase">
-                                <li id="menu-item-2645" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2643 current_page_item active  menu-item-2645">
-                                    <a href="index.php" class="nav-top-link">HOME</a>
-                                </li>
-                                <li id="menu-item-2711" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-2711">
-                                    <a href="products.php" class="nav-top-link">PRODUCTS</a>
-                                </li>
-                                <li id="menu-item-2646" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-2646">
-                                    <a href="events.php" class="nav-top-link">EVENTS</a>
-                                </li>
-                                <li id="menu-item-2648" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-2648">
-                                    <a href="contact.php" class="nav-top-link">CONTACT</a>
-                                </li>
-                                <li id="menu-item-3118" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-3118">
-                                    <a href="faqs.php" class="nav-top-link">FAQ</a>
-                                </li>
-                                <li id="menu-item-2650-id" class="lang-item lang-item-26 lang-item-id lang-item-first menu-item menu-item-type-custom menu-item-object-custom  menu-item-2650-id">
-                                    <a href="https://tekiro.com/id/" class="nav-top-link">
-                                        <img src="<?=base_url()?>appsources/image/id.png" title="ID" alt="ID" />
-                                    </a>
-                                </li>
-                            </ul>
+                <?=$this->menu->top()?>
 					    </div>
 					    <!-- Mobile Right Elements -->
 					    <div class="flex-col show-for-medium flex-right">
