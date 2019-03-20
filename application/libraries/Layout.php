@@ -20,7 +20,8 @@
                 <link rel="dns-prefetch" href="//s.w.org" />
                 <link rel="stylesheet" id="contact-form-7-css"  href="'.base_url().'appsources/css/styles.css" type="text/css" media="all" />
                 <link rel="stylesheet" href="'.base_url().'appsources/fontawesome/css/font-awesome.min.css" type="text/css" media="all" />
-                <link rel="stylesheet" id="dflip-style-css"  href="'.base_url().'appsources/css/dflip.css" type="text/css" media="all" />
+                <link rel="stylesheet" id="dflip-style-css"  href="'.base_url().'appsources/dflip/assets/css/dflip.css" type="text/css" media="all" />
+                <link rel="stylesheet" id="dflip-style-css"  href="'.base_url().'appsources/dflip/assets/css/themify-icons.css" type="text/css" media="all" />
                 <link rel="stylesheet" id="flatsome-main-css"  href="'.base_url().'appsources/css/js_composer.min.css" type="text/css" media="all" />
                 <link rel="stylesheet" id="flatsome-main-css"  href="'.base_url().'appsources/css/flatsome.css" type="text/css" media="all" />
                 <link rel="stylesheet" id="flatsome-style-css"  href="'.base_url().'appsources/css/custom.css" type="text/css" media="all" />
@@ -84,6 +85,7 @@
                 </style>
                 <style type="text/css" data-type="vc_custom-css">
                     #content-home {background-color:#0DB14B;}
+                    #content-event {padding-top:100;background-color:#0DB14B;}
                     #content-product {padding-top:100}
                     .mejs-container .mejs-controls {display:none !important;}
                 </style>
@@ -135,13 +137,17 @@
                 </style>
                 <script type="text/javascript" src="'.base_url().'appsources/js/scripts.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/flatsome-live-search.js"></script>
-                <script type="text/javascript" src="'.base_url().'appsources/js/dflip.js"></script>
+                <script type="text/javascript" src="'.base_url().'appsources/dflip/assets/js/dflip.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/hoverIntent.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/flatsome.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/wp-embed.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/yikes-mc-ajax-forms.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/form-submission-helpers.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/packery.pkgd.min.js"></script>
+                <script type="text/javascript" src="'.base_url().'appsources/js/jquery.prettyPhoto.min.js"></script>
+                <script type="text/javascript" src="'.base_url().'appsources/js/owl.carousel.min.js"></script>
+                <script type="text/javascript" src="'.base_url().'appsources/js/imagesloaded.pkgd.min.js"></script>
+                <script type="text/javascript" src="'.base_url().'appsources/js/underscore.min.js"></script>
             
             ';
             return $ret;

@@ -174,7 +174,7 @@
                               <p style="text-align: left;">
                                 <span style="color: #000000;">Continuously improving and innovating is our commitment to your trust for <strong>TEKIRO Tools</strong> products.</span>
                               </p>
-                              <a data-animate="fadeInDown" href="https://tekiro.com/products/" target="_self" class="button secondary"  >
+                              <a data-animate="fadeInDown" href="<?=base_url()?>products/" target="_self" class="button secondary"  >
                                 <i class="fa fa-plus" ></i>  <span>Read More</span>
                               </a>
                             </div>
@@ -186,7 +186,7 @@
                                   <span style="color: #000000;">New Products Gallery of <span style="color: #0db14b;">TEKIRO</span><span style="font-size: 75%;"><sup>®</sup></span> Tools</span>
                                 </h2>
                                 <p style="text-align: left;"><span style="color: #000000;">Always innovating continuously is our commitment to the trust you have provided by selecting TEKIRO® Tools products.</span></p>
-                                <a data-animate="fadeInDown" href="https://tekiro.com/products/" target="_self" class="button secondary"  >
+                                <a data-animate="fadeInDown" href="<?=base_url()?>products/" target="_self" class="button secondary"  >
                                   <i class="fa fa-plus" ></i>  <span>Read More</span>
                                 </a>
                               </div>
@@ -197,7 +197,7 @@
                                 <h2 style="text-align: left;"><span style="color: #000000;">New Products Gallery of <span style="color: #0db14b;">TEKIRO</span><span style="font-size: 75%;"><sup>®</sup></span> Tools</span></h2>
                                 <p style="text-align: left;">
                                   <span style="color: #000000;">Always innovating continuously is our commitment to the trust you have provided by selecting TEKIRO® Tools products.</span></p>
-                                  <a data-animate="fadeInDown" href="https://tekiro.com/products/" target="_self" class="button secondary"  >
+                                  <a data-animate="fadeInDown" href="<?=base_url()?>products/" target="_self" class="button secondary"  >
                                     <i class="fa fa-plus" ></i>  <span>Read More</span>
                                   </a>
                                 </div>
@@ -328,7 +328,7 @@
                               <div class="text-inner text-center">
                                 <h2 class="uppercase"><strong>AUTOMOTIVE<br />TOOLS</strong></h2>
                                 <h4 class="uppercase">More Precision for<br />Your Vehicles</h4>
-                                <a href="https://tekiro.com/products/" target="_self" class="button white is-outline"  >
+                                <a href="<?=base_url()?>products/" target="_self" class="button white is-outline"  >
                                   <span>See More</span>
                                 </a>
                               </div>
@@ -375,7 +375,7 @@
                   
 <h2 class="uppercase"><strong>CARPENTRY<br />TOOLS</strong></h2>
 <h4 class="uppercase">stronger for<br /> developments</h4>
-<a href="https://tekiro.com/products/" target="_self" class="button white is-outline"  >
+<a href="<?=base_url()?>products/" target="_self" class="button white is-outline"  >
     <span>See More</span>
   </a>
 
@@ -429,7 +429,7 @@
                   
 <h2 class="uppercase"><strong>Industrial<br />Tools</strong></h2>
 <h4 class="uppercase">More reliable<br /> For industries</h4>
-<a href="https://tekiro.com/products/" target="_self" class="button white is-outline"  >
+<a href="<?=base_url()?>products/" target="_self" class="button white is-outline"  >
     <span>See More</span>
   </a>
 
