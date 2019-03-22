@@ -53,5 +53,7 @@ $route['default_controller'] = 'home/front';
 $route['home'] = 'home/front';
 $route['products'] = 'products/front';
 $route['event'] = 'event/front';
+$route['contact'] = 'contact/front';
+$route['faq'] = 'faq/front';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

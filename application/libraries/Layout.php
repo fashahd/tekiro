@@ -86,6 +86,8 @@
                 <style type="text/css" data-type="vc_custom-css">
                     #content-home {background-color:#0DB14B;}
                     #content-event {padding-top:100;background-color:#0DB14B;}
+                    #content-contact {padding-top:110;background-color:#fff;}
+                    #content-faq {padding-top:100;background-color:#fff;}
                     #content-product {padding-top:100}
                     .mejs-container .mejs-controls {display:none !important;}
                 </style>
