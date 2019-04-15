@@ -26,8 +26,8 @@
                 <link rel="stylesheet" id="flatsome-main-css"  href="'.base_url().'appsources/css/flatsome.css" type="text/css" media="all" />
                 <link rel="stylesheet" id="flatsome-style-css"  href="'.base_url().'appsources/css/custom.css" type="text/css" media="all" />
                 <script type="text/javascript" data-cfasync="false" src="'.base_url().'appsources/js/jquery.js"></script>
-                <script type="text/javascript" src="'.base_url().'appsources/js/jquery-migrate.min.js"></script>
                 
+                <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
                 <link rel="canonical" href="'.base_url().'" />
                 <link rel="shortlink" href="'.base_url().'" />
                 <style>.bg{opacity: 0; transition: opacity 1s; -webkit-transition: opacity 1s;} .bg-loaded{opacity: 1;}</style>
@@ -141,7 +141,6 @@
                 <script type="text/javascript" src="'.base_url().'appsources/js/flatsome-live-search.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/dflip/assets/js/dflip.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/hoverIntent.min.js"></script>
-                <script type="text/javascript" src="'.base_url().'appsources/js/flatsome.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/wp-embed.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/yikes-mc-ajax-forms.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/form-submission-helpers.min.js"></script>
@@ -150,7 +149,7 @@
                 <script type="text/javascript" src="'.base_url().'appsources/js/owl.carousel.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/imagesloaded.pkgd.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/underscore.min.js"></script>
-            
+                <script type="text/javascript" src="'.base_url().'appsources/js/flatsome.js"></script>
             ';
             return $ret;
         }
