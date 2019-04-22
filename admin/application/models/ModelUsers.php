@@ -18,7 +18,7 @@
                     "email"     => $email,
                     "message"   => "Login Success"
                 );
-                $this->session->userdata("username",$username);
+                $this->session->set_userdata("userlogin",$data);
             }else{
                 $data = array(
                     "status"    => "error",
