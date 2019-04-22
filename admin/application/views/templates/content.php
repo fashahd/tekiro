@@ -1,915 +1,1774 @@
-<?=$this->layout->headersource($module)?>
-<body data-rsssl=1 class="home page-template page-template-page-transparent-header page-template-page-transparent-header-php page page-id-2643 full-width lightbox lazy-icons nav-dropdown-has-arrow wpb-js-composer js-comp-ver-5.1 vc_responsive">
-	<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
-	<div id="wrapper">
-		<header id="header" class="header transparent has-transparent">
-			<div class="header-wrapper">
-				<div id="masthead" class="header-main hide-for-sticky nav-dark">
-                    <div class="header-inner flex-row container logo-left" role="navigation">
-                        <!-- Logo -->
-					    <div id="logo" class="flex-col logo">
-						    <!-- Header logo -->
-                            <a href="<?=base_url()?>" title="TEKIRO® Tools - Believe in Your Choice" rel="<?=lcfirst($module)?>">
-                            <img width="229" height="100" src="<?=base_url()?>appsources/image/logo.png" class="header_logo header-logo" alt="TEKIRO® Tools"/>
-                            <img  width="229" height="100" src="<?=base_url()?>appsources/image/logo.png" class="header-logo-dark" alt="TEKIRO® Tools"/></a>
-					    </div>
-					    <!-- Mobile Left Elements -->
-					    <div class="flex-col show-for-medium flex-left">
-                            <ul class="mobile-nav nav nav-left ">
-                                <li class="has-dropdown header-language-dropdown">
-                                <a href="#">
-                                    EN
-                                    <i class="image-icon"><img src="<?=base_url()?>appsources/image/us.png"/></i>
-                                    <i class="fa fa-angle-down" ></i>
-                                </a>
-                                <ul class="nav-dropdown nav-dropdown-default">
-                                    <li>
-                                    <a href="<?=base_url()?>id/" hreflang="id">
-                                        <i class="fa fa-image"><img src="<?=base_url()?>appsources/image/id.png"/></i>
-                                        ID
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<?=$this->layout->header($module)?>
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header border-right">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="navbar-brand" href="<?=base_url()?>">
+                        <!-- Logo icon -->
+                      <b class="logo-icon">
+                        Admin
+                      </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                      <!-- <span class="logo-text">
+                        Admin
+                      </span> -->
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-18"></i></a></li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="ml-2 font-medium"><?=$name?></span><span class="fas fa-angle-down ml-2"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <div class="d-flex no-block align-items-center p-3 mb-2 border-bottom">
+                                    <div class="ml-2">
+                                        <h4 class="mb-0"><?=$name?></h4>
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-danger text-white mt-2 btn-rounded">View Profile</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings mr-1 ml-1"></i> Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?=base_url()?>auth/logout"><i class="fa fa-power-off mr-1 ml-1"></i> Logout</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark profile-dd" href="javascript:void(0)" aria-expanded="false">
+                                <img src="<?=base_url()?>appsources/assets/images/users/1.jpg" class="rounded-circle ml-2" width="30">
+                                <span class="hide-menu">Steve Jection </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="ti-user"></i>
+                                        <span class="hide-menu"> My Profile </span>
                                     </a>
-                                    </li>
-                                    <li>
-                                    <a href="<?=base_url()?>" hreflang="en">
-                                        <i class="fa fa-image"><img src="<?=base_url()?>appsources/image/us.png"/></i>
-                                        EN
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="ti-wallet"></i>
+                                        <span class="hide-menu"> My Balance </span>
                                     </a>
-                                    </li>
-                                </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="ti-email"></i>
+                                        <span class="hide-menu"> Inbox </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="ti-settings"></i>
+                                        <span class="hide-menu"> Account Setting </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="fas fa-power-off"></i>
+                                        <span class="hide-menu"> Logout </span>
+                                    </a>
                                 </li>
                             </ul>
-					    </div>
-                        <!-- Left Elements -->
-                        <div class="flex-col hide-for-medium flex-left flex-grow">
-                            <ul class="header-nav header-nav-main nav nav-left  nav-size-large nav-spacing-xlarge nav-uppercase" ></ul>
-                        </div>
-					    <!-- Right Elements -->
-					    <div class="flex-col hide-for-medium flex-right">
-                <?=$this->menu->top()?>
-					    </div>
-					    <!-- Mobile Right Elements -->
-					    <div class="flex-col show-for-medium flex-right">
-                            <ul class="mobile-nav nav nav-right ">
-                                <li class="nav-icon has-icon">
-                                <a href="#" data-open="#main-menu" data-pos="center" data-bg="main-menu-overlay" data-color="dark" class="is-small" aria-controls="main-menu" aria-expanded="false">
-                                    <i class="fa fa-align-justify" ></i>
-                                </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-av-timer"></i>
+                                <span class="hide-menu">Dashboard</span>
+                                <span class="badge badge-inverse badge-pill ml-auto mr-3 font-medium px-2 py-1">6</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="index.html" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Dashboard 1 </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="index2.html" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Dashboard 2 </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="index3.html" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Dashboard 3 </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="index4.html" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Dashboard 4 </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="index5.html" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Dashboard 5 </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="index6.html" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Dashboard 6 </span>
+                                    </a>
                                 </li>
                             </ul>
-					    </div>
-					</div><!-- .header-inner -->
-				</div><!-- .header-main -->
-				<div class="header-bg-container fill">
-                    <div class="header-bg-image fill"></div>
-                    <div class="header-bg-color fill"></div>
-				</div><!-- .header-bg-container -->   
-			</div><!-- header-wrapper-->
-		</header>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-cart-outline"></i>
+                                <span class="hide-menu">Ecommerce</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="eco-products.html" class="sidebar-link">
+                                        <i class="mdi mdi-cards-variant"></i>
+                                        <span class="hide-menu">Products</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="eco-products-cart.html" class="sidebar-link">
+                                        <i class="mdi mdi-cart"></i>
+                                        <span class="hide-menu">Products Cart</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="eco-products-edit.html" class="sidebar-link">
+                                        <i class="mdi mdi-cart-plus"></i>
+                                        <span class="hide-menu">Products Edit</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="eco-products-detail.html" class="sidebar-link">
+                                        <i class="mdi mdi-camera-burst"></i>
+                                        <span class="hide-menu">Product Details</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="eco-products-orders.html" class="sidebar-link">
+                                        <i class="mdi mdi-chart-pie"></i>
+                                        <span class="hide-menu">Product Orders</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="eco-products-checkout.html" class="sidebar-link">
+                                        <i class="mdi mdi-clipboard-check"></i>
+                                        <span class="hide-menu">Products Checkout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-format-color-fill"></i>
+                                <span class="hide-menu">Ui Elements </span>
+                                <span class="badge badge-info badge-pill ml-auto mr-3 font-medium px-2 py-1">12</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="ui-buttons.html" class="sidebar-link">
+                                        <i class="mdi mdi-toggle-switch"></i>
+                                        <span class="hide-menu"> Buttons</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-modals.html" class="sidebar-link">
+                                        <i class="mdi mdi-tablet"></i>
+                                        <span class="hide-menu"> Modals</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-tab.html" class="sidebar-link">
+                                        <i class="mdi mdi-sort-variant"></i>
+                                        <span class="hide-menu"> Tab</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-tooltip-popover.html" class="sidebar-link">
+                                        <i class="mdi mdi-image-filter-vintage"></i>
+                                        <span class="hide-menu"> Tooltip &amp; Popover</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-notification.html" class="sidebar-link">
+                                        <i class="mdi mdi-message-bulleted"></i>
+                                        <span class="hide-menu"> Notification</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-progressbar.html" class="sidebar-link">
+                                        <i class="mdi mdi-poll"></i>
+                                        <span class="hide-menu"> Progressbar</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-typography.html" class="sidebar-link">
+                                        <i class="mdi mdi-format-line-spacing"></i>
+                                        <span class="hide-menu"> Typography</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-bootstrap.html" class="sidebar-link">
+                                        <i class="mdi mdi-bootstrap"></i>
+                                        <span class="hide-menu"> Bootstrap Ui</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-breadcrumb.html" class="sidebar-link">
+                                        <i class="mdi mdi-equal"></i>
+                                        <span class="hide-menu"> Breadcrumb</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-list-media.html" class="sidebar-link">
+                                        <i class="mdi mdi-file-video"></i>
+                                        <span class="hide-menu"> List Media</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-grid.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-module"></i>
+                                        <span class="hide-menu"> Grid</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-carousel.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-carousel"></i>
+                                        <span class="hide-menu"> Carousel</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-content-copy"></i>
+                                <span class="hide-menu">Sample Pages</span>
+                                <span class="badge badge-warning text-white badge-pill ml-auto mr-3 font-medium px-2 py-1">25</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="starter-kit.html" class="sidebar-link">
+                                        <i class="mdi mdi-crop-free"></i>
+                                        <span class="hide-menu">Starter Kit</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-email-open-outline"></i>
+                                        <span class="hide-menu">Email Templates</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="email-templete-alert.html" class="sidebar-link">
+                                                <i class="mdi mdi-message-alert"></i>
+                                                <span class="hide-menu"> Alert </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="email-templete-basic.html" class="sidebar-link">
+                                                <i class="mdi mdi-message-bulleted"></i>
+                                                <span class="hide-menu"> Basic</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="email-templete-billing.html" class="sidebar-link">
+                                                <i class="mdi mdi-message-draw"></i>
+                                                <span class="hide-menu"> Billing</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="email-templete-password-reset.html" class="sidebar-link">
+                                                <i class="mdi mdi-message-bulleted-off"></i>
+                                                <span class="hide-menu"> Password-Reset</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-account-circle"></i>
+                                        <span class="hide-menu">Authentication</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="authentication-login1.html" class="sidebar-link">
+                                                <i class="mdi mdi-account-key"></i>
+                                                <span class="hide-menu"> Login </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="authentication-login2.html" class="sidebar-link">
+                                                <i class="mdi mdi-account-key"></i>
+                                                <span class="hide-menu"> Login 2 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="authentication-register1.html" class="sidebar-link">
+                                                <i class="mdi mdi-account-plus"></i>
+                                                <span class="hide-menu"> Register</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="authentication-register2.html" class="sidebar-link">
+                                                <i class="mdi mdi-account-plus"></i>
+                                                <span class="hide-menu"> Register 2</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="authentication-lockscreen.html" class="sidebar-link">
+                                                <i class="mdi mdi-account-off"></i>
+                                                <span class="hide-menu"> Lockscreen</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="authentication-recover-password.html" class="sidebar-link">
+                                                <i class="mdi mdi-account-convert"></i>
+                                                <span class="hide-menu"> Recover password</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-alert-box"></i>
+                                        <span class="hide-menu">Error Pages</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="error-400.html" class="sidebar-link">
+                                                <i class="mdi mdi-alert-outline"></i>
+                                                <span class="hide-menu"> Error 400 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="error-403.html" class="sidebar-link">
+                                                <i class="mdi mdi-alert-outline"></i>
+                                                <span class="hide-menu"> Error 403</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="error-404.html" class="sidebar-link">
+                                                <i class="mdi mdi-alert-outline"></i>
+                                                <span class="hide-menu"> Error 404</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="error-500.html" class="sidebar-link">
+                                                <i class="mdi mdi-alert-outline"></i>
+                                                <span class="hide-menu"> Error 500</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="error-503.html" class="sidebar-link">
+                                                <i class="mdi mdi-alert-outline"></i>
+                                                <span class="hide-menu"> Error 503</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-animation.html" class="sidebar-link">
+                                        <i class="mdi mdi-debug-step-over"></i>
+                                        <span class="hide-menu">Animation</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-search-result.html" class="sidebar-link">
+                                        <i class="mdi mdi-search-web"></i>
+                                        <span class="hide-menu">Search Result</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-gallery.html" class="sidebar-link">
+                                        <i class="mdi mdi-camera-iris"></i>
+                                        <span class="hide-menu">Gallery</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-treeview.html" class="sidebar-link">
+                                        <i class="mdi mdi-file-tree"></i>
+                                        <span class="hide-menu">Treeview</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-block-ui.html" class="sidebar-link">
+                                        <i class="mdi mdi-codepen"></i>
+                                        <span class="hide-menu">Block UI</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-session-timeout.html" class="sidebar-link">
+                                        <i class="mdi mdi-timer-off"></i>
+                                        <span class="hide-menu">Session Timeout</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-session-idle-timeout.html" class="sidebar-link">
+                                        <i class="mdi mdi-timer-sand-empty"></i>
+                                        <span class="hide-menu">Session Idle Timeout</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-utility-classes.html" class="sidebar-link">
+                                        <i class="mdi mdi-tune"></i>
+                                        <span class="hide-menu">Helper Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-maintenance.html" class="sidebar-link">
+                                        <i class="mdi mdi-camera-iris"></i>
+                                        <span class="hide-menu">Maintenance Page</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-apps"></i>
+                                <span class="hide-menu">Apps</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="app-chats.html" class="sidebar-link">
+                                        <i class="mdi mdi-comment-processing-outline"></i>
+                                        <span class="hide-menu">Chat Message</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-inbox-arrow-down"></i>
+                                        <span class="hide-menu">Inbox</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="inbox-email.html" class="sidebar-link">
+                                                <i class="mdi mdi-email"></i>
+                                                <span class="hide-menu"> Email </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="inbox-email-detail.html" class="sidebar-link">
+                                                <i class="mdi mdi-email-alert"></i>
+                                                <span class="hide-menu"> Email Detail </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="inbox-email-compose.html" class="sidebar-link">
+                                                <i class="mdi mdi-email-secure"></i>
+                                                <span class="hide-menu"> Email Compose </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="ti-user"></i>
+                                        <span class="hide-menu">Contacts</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="contact-list.html" class="sidebar-link">
+                                                <i class="icon-people"></i>
+                                                <span class="hide-menu"> Contact List </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="contact-grid.html" class="sidebar-link">
+                                                <i class="icon-user-follow"></i>
+                                                <span class="hide-menu"> Contacts Grid </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-bookmark-plus-outline"></i>
+                                        <span class="hide-menu">Tickets</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="ticket-list.html" class="sidebar-link">
+                                                <i class="mdi mdi-book-multiple"></i>
+                                                <span class="hide-menu"> Ticket List </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="ticket-detail.html" class="sidebar-link">
+                                                <i class="mdi mdi-book-plus"></i>
+                                                <span class="hide-menu"> Ticket Detail </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="app-taskboard.html" class="sidebar-link">
+                                        <i class="mdi mdi-bulletin-board"></i>
+                                        <span class="hide-menu"> Taskboard </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <div class="devider"></div>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-tune-vertical"></i>
+                                <span class="hide-menu">Sidebar Type </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="sidebar-type-minisidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-quilt"></i>
+                                        <span class="hide-menu"> Minisidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="sidebar-type-iconsidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-parallel"></i>
+                                        <span class="hide-menu"> Icon Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="sidebar-type-overlaysidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-day"></i>
+                                        <span class="hide-menu"> Overlay Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="sidebar-type-fullsidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-array"></i>
+                                        <span class="hide-menu"> Full Sidebar </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-content-copy"></i>
+                                <span class="hide-menu">Page Layouts </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="layout-inner-fixed-left-sidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-format-align-left"></i>
+                                        <span class="hide-menu"> Inner Fixed Left Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="layout-inner-fixed-right-sidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-format-align-right"></i>
+                                        <span class="hide-menu"> Inner Fixed Right Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="layout-inner-left-sidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-format-float-left"></i>
+                                        <span class="hide-menu"> Inner Left Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="layout-inner-right-sidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-format-float-right"></i>
+                                        <span class="hide-menu"> Inner Right Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-layout-fixed-header.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-quilt"></i>
+                                        <span class="hide-menu"> Fixed Header </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-layout-fixed-sidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-parallel"></i>
+                                        <span class="hide-menu"> Fixed Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-layout-fixed-header-sidebar.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-column"></i>
+                                        <span class="hide-menu"> Fixed Header &amp; Sidebar </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-layout-boxed-layout.html" class="sidebar-link">
+                                        <i class="mdi mdi-view-carousel"></i>
+                                        <span class="hide-menu"> Box Layout </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <div class="devider"></div>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-clipboard-text"></i>
+                                <span class="hide-menu">Forms</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-collage"></i>
+                                        <span class="hide-menu">Form Elements</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="form-inputs.html" class="sidebar-link">
+                                                <i class="mdi mdi-priority-low"></i>
+                                                <span class="hide-menu"> Forms Input</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-input-groups.html" class="sidebar-link">
+                                                <i class="mdi mdi-rounded-corner"></i>
+                                                <span class="hide-menu"> Input Groups</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-input-grid.html" class="sidebar-link">
+                                                <i class="mdi mdi-select-all"></i>
+                                                <span class="hide-menu"> Input Grid</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-checkbox-radio.html" class="sidebar-link">
+                                                <i class="mdi mdi-shape-plus"></i>
+                                                <span class="hide-menu"> Checkboxes &amp; Radios</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-bootstrap-touchspin.html" class="sidebar-link">
+                                                <i class="mdi mdi-switch"></i>
+                                                <span class="hide-menu"> Bootstrap Touchspin</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-bootstrap-switch.html" class="sidebar-link">
+                                                <i class="mdi mdi-toggle-switch-off"></i>
+                                                <span class="hide-menu"> Bootstrap Switch</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-select2.html" class="sidebar-link">
+                                                <i class="mdi mdi-relative-scale"></i>
+                                                <span class="hide-menu"> Select2</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-dual-listbox.html" class="sidebar-link">
+                                                <i class="mdi mdi-tab-unselected"></i>
+                                                <span class="hide-menu"> Dual Listbox</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-xditable.html" class="sidebar-link">
+                                                <i class="mdi mdi-loop"></i>
+                                                <span class="hide-menu"> X-editable</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-receipt"></i>
+                                        <span class="hide-menu">Form Layouts</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="form-basic.html" class="sidebar-link">
+                                                <i class="mdi mdi-vector-difference-ba"></i>
+                                                <span class="hide-menu"> Basic Forms</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-horizontal.html" class="sidebar-link">
+                                                <i class="mdi mdi-file-document-box"></i>
+                                                <span class="hide-menu"> Form Horizontal</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-actions.html" class="sidebar-link">
+                                                <i class="mdi mdi-code-greater-than"></i>
+                                                <span class="hide-menu"> Form Actions</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-row-separator.html" class="sidebar-link">
+                                                <i class="mdi mdi-code-equal"></i>
+                                                <span class="hide-menu"> Row Separator</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-bordered.html" class="sidebar-link">
+                                                <i class="mdi mdi-flip-to-front"></i>
+                                                <span class="hide-menu"> Form Bordered</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-striped-row.html" class="sidebar-link">
+                                                <i class="mdi mdi-content-duplicate"></i>
+                                                <span class="hide-menu"> Striped Rows</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-detail.html" class="sidebar-link">
+                                                <i class="mdi mdi-cards-outline"></i>
+                                                <span class="hide-menu"> Form Detail</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-material.html" class="sidebar-link">
+                                                <i class="mdi mdi-content-duplicate"></i>
+                                                <span class="hide-menu"> Form Material</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-float-input.html" class="sidebar-link">
+                                                <i class="mdi mdi-logout"></i>
+                                                <span class="hide-menu"> Form Float Input</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-code-equal"></i>
+                                        <span class="hide-menu">Form Addons</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="form-paginator.html" class="sidebar-link">
+                                                <i class="mdi mdi-export"></i>
+                                                <span class="hide-menu"> Paginator</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-img-cropper.html" class="sidebar-link">
+                                                <i class="mdi mdi-crop"></i>
+                                                <span class="hide-menu"> Image Cropper</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-dropzone.html" class="sidebar-link">
+                                                <i class="mdi mdi-crosshairs-gps"></i>
+                                                <span class="hide-menu"> Dropzone</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-mask.html" class="sidebar-link">
+                                                <i class="mdi mdi-box-shadow"></i>
+                                                <span class="hide-menu"> Form Mask</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-typeahead.html" class="sidebar-link">
+                                                <i class="mdi mdi-cards-variant"></i>
+                                                <span class="hide-menu"> Form Typehead</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-alert-box"></i>
+                                        <span class="hide-menu">Form Validation</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="form-bootstrap-validation.html" class="sidebar-link">
+                                                <i class="mdi mdi-credit-card-scan"></i>
+                                                <span class="hide-menu"> Bootstrap Validation</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-custom-validation.html" class="sidebar-link">
+                                                <i class="mdi mdi-credit-card-plus"></i>
+                                                <span class="hide-menu"> Custom Validation</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-pencil-box-outline"></i>
+                                        <span class="hide-menu">Form Pickers</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="form-picker-colorpicker.html" class="sidebar-link">
+                                                <i class="mdi mdi-calendar-plus"></i>
+                                                <span class="hide-menu"> Form Colorpicker</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-picker-datetimepicker.html" class="sidebar-link">
+                                                <i class="mdi mdi-calendar-clock"></i>
+                                                <span class="hide-menu"> Form Datetimepicker</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-picker-bootstrap-rangepicker.html" class="sidebar-link">
+                                                <i class="mdi mdi-calendar-range"></i>
+                                                <span class="hide-menu"> Form Bootstrap Rangepicker</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-picker-bootstrap-datepicker.html" class="sidebar-link">
+                                                <i class="mdi mdi-calendar-check"></i>
+                                                <span class="hide-menu"> Form Bootstrap Datepicker</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-picker-material-datepicker.html" class="sidebar-link">
+                                                <i class="mdi mdi-calendar-text"></i>
+                                                <span class="hide-menu"> Form Material Datepicker</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-dns"></i>
+                                        <span class="hide-menu">Form Editor</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="form-editor-ckeditor.html" class="sidebar-link">
+                                                <i class="mdi mdi-drawing"></i>
+                                                <span class="hide-menu">Ck Editor</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-editor-quill.html" class="sidebar-link">
+                                                <i class="mdi mdi-drupal"></i>
+                                                <span class="hide-menu">Quill Editor</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-editor-summernote.html" class="sidebar-link">
+                                                <i class="mdi mdi-brightness-6"></i>
+                                                <span class="hide-menu">Summernote Editor</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="form-editor-tinymce.html" class="sidebar-link">
+                                                <i class="mdi mdi-bowling"></i>
+                                                <span class="hide-menu">Tinymce Edtor</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="form-wizard.html" class="sidebar-link">
+                                        <i class="mdi mdi-cube-send"></i>
+                                        <span class="hide-menu">Form Wizard</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="form-repeater.html" class="sidebar-link">
+                                        <i class="mdi mdi-creation"></i>
+                                        <span class="hide-menu">Form Repeater</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-table"></i>
+                                <span class="hide-menu">Tables</span>
+                                <span class="badge badge-danger text-white badge-pill ml-auto mr-3 font-medium px-2 py-1">11</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-border-none"></i>
+                                        <span class="hide-menu">Bootstrap Tables</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="table-basic.html" class="sidebar-link">
+                                                <i class="mdi mdi-border-all"></i>
+                                                <span class="hide-menu">Basic Table </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="table-dark-basic.html" class="sidebar-link">
+                                                <i class="mdi mdi-border-left"></i>
+                                                <span class="hide-menu">Dark Basic Table </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="table-sizing.html" class="sidebar-link">
+                                                <i class="mdi mdi-border-outside"></i>
+                                                <span class="hide-menu">Sizing Table </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="table-layout-coloured.html" class="sidebar-link">
+                                                <i class="mdi mdi-border-bottom"></i>
+                                                <span class="hide-menu">Coloured Table Layout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-border-inside"></i>
+                                        <span class="hide-menu">Datatables</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="table-datatable-basic.html" class="sidebar-link">
+                                                <i class="mdi mdi-border-vertical"></i>
+                                                <span class="hide-menu"> Basic Initialisation</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="table-datatable-api.html" class="sidebar-link">
+                                                <i class="mdi mdi-blur-linear"></i>
+                                                <span class="hide-menu"> API</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="table-datatable-advanced.html" class="sidebar-link">
+                                                <i class="mdi mdi-border-style"></i>
+                                                <span class="hide-menu"> Advanced Initialisation</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="table-bootstrap.html" class="sidebar-link">
+                                        <i class="mdi mdi-border-horizontal"></i>
+                                        <span class="hide-menu">Table Bootstrap</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="table-jsgrid.html" class="sidebar-link">
+                                        <i class="mdi mdi-border-top"></i>
+                                        <span class="hide-menu">Table Jsgrid</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="table-responsive.html" class="sidebar-link">
+                                        <i class="mdi mdi-border-style"></i>
+                                        <span class="hide-menu">Table Responsive</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="table-footable.html" class="sidebar-link">
+                                        <i class="mdi mdi-tab-unselected"></i>
+                                        <span class="hide-menu">Table Footable</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-chart-bar"></i>
+                                <span class="hide-menu">Charts</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="chart-morris.html" class="sidebar-link">
+                                        <i class="mdi mdi-image-filter-tilt-shift"></i>
+                                        <span class="hide-menu">Morris Chart</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="chart-chart-js.html" class="sidebar-link">
+                                        <i class="mdi mdi-svg"></i>
+                                        <span class="hide-menu">Chartjs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="chart-sparkline.html" class="sidebar-link">
+                                        <i class="mdi mdi-chart-histogram"></i>
+                                        <span class="hide-menu">Sparkline Chart</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="chart-chartist.html" class="sidebar-link">
+                                        <i class="mdi mdi-blur"></i>
+                                        <span class="hide-menu">Chartist Chart</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-chemical-weapon"></i>
+                                        <span class="hide-menu">C3 Charts</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="chart-c3-axis.html" class="sidebar-link">
+                                                <i class="mdi mdi-arrange-bring-to-front"></i>
+                                                <span class="hide-menu">Axis Chart</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="chart-c3-bar.html" class="sidebar-link">
+                                                <i class="mdi mdi-arrange-send-to-back"></i>
+                                                <span class="hide-menu">Bar Chart</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="chart-c3-data.html" class="sidebar-link">
+                                                <i class="mdi mdi-backup-restore"></i>
+                                                <span class="hide-menu">Data Chart</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="chart-c3-line.html" class="sidebar-link">
+                                                <i class="mdi mdi-backburger"></i>
+                                                <span class="hide-menu">Line Chart</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-chart-areaspline"></i>
+                                        <span class="hide-menu">Echarts</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a href="chart-echart-basic.html" class="sidebar-link">
+                                                <i class="mdi mdi-chart-line"></i>
+                                                <span class="hide-menu">Basic Charts</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="chart-echart-bar.html" class="sidebar-link">
+                                                <i class="mdi mdi-chart-scatterplot-hexbin"></i>
+                                                <span class="hide-menu">Bar Chart</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="chart-echart-pie-doughnut.html" class="sidebar-link">
+                                                <i class="mdi mdi-chart-pie"></i>
+                                                <span class="hide-menu">Pie &amp; Doughnut Chart</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <div class="devider"></div>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-credit-card-multiple"></i>
+                                <span class="hide-menu">Cards</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="ui-cards.html" class="sidebar-link">
+                                        <i class="mdi mdi-layers"></i>
+                                        <span class="hide-menu"> Basic Cards</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-card-customs.html" class="sidebar-link">
+                                        <i class="mdi mdi-credit-card-scan"></i>
+                                        <span class="hide-menu">Custom Cards</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-card-weather.html" class="sidebar-link">
+                                        <i class="mdi mdi-weather-fog"></i>
+                                        <span class="hide-menu">Weather Cards</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-card-draggable.html" class="sidebar-link">
+                                        <i class="mdi mdi-bandcamp"></i>
+                                        <span class="hide-menu">Draggable Cards</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-credit-card-multiple"></i>
+                                <span class="hide-menu">Components</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="component-sweetalert.html" class="sidebar-link">
+                                        <i class="mdi mdi-layers"></i>
+                                        <span class="hide-menu"> Sweet Alert</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="component-nestable.html" class="sidebar-link">
+                                        <i class="mdi mdi-credit-card-scan"></i>
+                                        <span class="hide-menu">Nestable</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="component-noui-slider.html" class="sidebar-link">
+                                        <i class="mdi mdi-weather-fog"></i>
+                                        <span class="hide-menu">Noui slider</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="component-rating.html" class="sidebar-link">
+                                        <i class="mdi mdi-bandcamp"></i>
+                                        <span class="hide-menu">Rating</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="component-toastr.html" class="sidebar-link">
+                                        <i class="mdi mdi-poll"></i>
+                                        <span class="hide-menu">Toastr</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <div class="devider"></div>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-settings"></i>
+                                <span class="hide-menu">Widgets </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="widgets-apps.html" class="sidebar-link">
+                                        <i class="mdi mdi-comment-processing-outline"></i>
+                                        <span class="hide-menu"> Apps Widgets </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="widgets-data.html" class="sidebar-link">
+                                        <i class="mdi mdi-calendar"></i>
+                                        <span class="hide-menu"> Data Widgets </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="widgets-charts.html" class="sidebar-link">
+                                        <i class="mdi mdi-bulletin-board"></i>
+                                        <span class="hide-menu"> Charts Widgets</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-face"></i>
+                                <span class="hide-menu">Icons</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="icon-material.html" class="sidebar-link">
+                                        <i class="mdi mdi-emoticon"></i>
+                                        <span class="hide-menu"> Material Icons </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="icon-fontawesome.html" class="sidebar-link">
+                                        <i class="mdi mdi-emoticon-cool"></i>
+                                        <span class="hide-menu"> Fontawesome Icons</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="icon-themify.html" class="sidebar-link">
+                                        <i class="mdi mdi-chart-bubble"></i>
+                                        <span class="hide-menu"> Themify Icons</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="icon-weather.html" class="sidebar-link">
+                                        <i class="mdi mdi-weather-cloudy"></i>
+                                        <span class="hide-menu"> Weather Icons</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="icon-simple-lineicon.html" class="sidebar-link">
+                                        <i class="mdi mdi mdi-image-broken-variant"></i>
+                                        <span class="hide-menu"> Simple Line icons</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="icon-flag.html" class="sidebar-link">
+                                        <i class="mdi mdi-flag-triangle"></i>
+                                        <span class="hide-menu"> Flag Icons</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html" aria-expanded="false">
+                                <i class="mdi mdi-google-maps"></i>
+                                <span class="hide-menu">Google Map</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-vector.html" aria-expanded="false">
+                                <i class="mdi mdi-map-marker-radius"></i>
+                                <span class="hide-menu">Vector Map</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-account-multiple"></i>
+                                <span class="hide-menu">Users</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="ui-user-card.html" class="sidebar-link">
+                                        <i class="mdi mdi-account-box"></i>
+                                        <span class="hide-menu"> User Card </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-profile.html" class="sidebar-link">
+                                        <i class="mdi mdi-account-network"></i>
+                                        <span class="hide-menu"> User Profile</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="ui-user-contacts.html" class="sidebar-link">
+                                        <i class="mdi mdi-account-star-variant"></i>
+                                        <span class="hide-menu"> User Contact</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-ungroup"></i>
+                                <span class="hide-menu">Invoice</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="pages-invoice.html" class="sidebar-link">
+                                        <i class="mdi mdi-vector-triangle"></i>
+                                        <span class="hide-menu"> Invoice Layout </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="pages-invoice-list.html" class="sidebar-link">
+                                        <i class="mdi mdi-vector-rectangle"></i>
+                                        <span class="hide-menu"> Invoice List</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-apple-safari"></i>
+                                <span class="hide-menu">Timeline</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="timeline-center.html" class="sidebar-link">
+                                        <i class="mdi mdi-clock-fast"></i>
+                                        <span class="hide-menu"> Center Timeline </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="timeline-horizontal.html" class="sidebar-link">
+                                        <i class="mdi mdi-clock-end"></i>
+                                        <span class="hide-menu"> Horizontal Timeline</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="timeline-left.html" class="sidebar-link">
+                                        <i class="mdi mdi-clock-in"></i>
+                                        <span class="hide-menu"> Left Timeline</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="timeline-right.html" class="sidebar-link">
+                                        <i class="mdi mdi-clock-start"></i>
+                                        <span class="hide-menu"> Right Timeline</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="app-calendar.html" aria-expanded="false">
+                                <i class="mdi mdi-calendar-check"></i>
+                                <span class="hide-menu">Calendar</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-notification-clear-all"></i>
+                                <span class="hide-menu">Multi level dd</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="mdi mdi-octagram"></i>
+                                        <span class="hide-menu"> item 1.1</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="mdi mdi-octagram"></i>
+                                        <span class="hide-menu"> item 1.2</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="has-arrow sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="mdi mdi-playlist-plus"></i>
+                                        <span class="hide-menu">Menu 1.3</span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse second-level">
+                                        <li class="sidebar-item">
+                                            <a href="javascript:void(0)" class="sidebar-link">
+                                                <i class="mdi mdi-octagram"></i>
+                                                <span class="hide-menu"> item 1.3.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="javascript:void(0)" class="sidebar-link">
+                                                <i class="mdi mdi-octagram"></i>
+                                                <span class="hide-menu"> item 1.3.2</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="javascript:void(0)" class="sidebar-link">
+                                                <i class="mdi mdi-octagram"></i>
+                                                <span class="hide-menu"> item 1.3.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="javascript:void(0)" class="sidebar-link">
+                                                <i class="mdi mdi-octagram"></i>
+                                                <span class="hide-menu"> item 1.3.4</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="javascript:void(0)" class="sidebar-link">
+                                        <i class="mdi mdi-playlist-check"></i>
+                                        <span class="hide-menu"> item 1.4</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <div class="devider"></div>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?=base_url()?>appsources/docs/documentation.html" aria-expanded="false">
+                                <i class="mdi mdi-adjust text-danger"></i>
+                                <span class="hide-menu">Documentation</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="authentication-login1.html" aria-expanded="false">
+                                <i class="mdi mdi-adjust text-info"></i>
+                                <span class="hide-menu">Log Out</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-faq.html" aria-expanded="false">
+                                <i class="mdi mdi-adjust text-success"></i>
+                                <span class="hide-menu">FAQs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->        
         <?=$this->load->view($pages)?>
-        <footer id="footer" class="footer-wrapper">
-            <div class="footer-widgets footer footer-1">
-		        <div class="row large-columns-1 mb-0">
-                    <div id="block_widget-5" class="col pb-0 widget block_widget">
-                        <section class="section dark" id="section_1528428793">
-                            <div class="bg section-bg fill bg-fill  bg-loaded" >
-                                <div class="is-border"
-                                    style="border-color:rgb(13, 177, 75);border-width:2px 0px 0px 0px;">
+    <!-- ============================================================== -->
+    <!-- customizer Panel -->
+    <!-- ============================================================== -->
+    <aside class="customizer">
+        <a href="javascript:void(0)" class="service-panel-toggle">
+            <i class="fa fa-spin fa-cog"></i>
+        </a>
+        <div class="customizer-body">
+            <ul class="nav customizer-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+                        <i class="mdi mdi-wrench font-20"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#chat" role="tab" aria-controls="chat" aria-selected="false">
+                        <i class="mdi mdi-message-reply font-20"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <i class="mdi mdi-star-circle font-20"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Tab 1 -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="p-3 border-bottom">
+                        <!-- Sidebar -->
+                        <h5 class="font-medium mb-2 mt-2">Layout Settings</h5>
+
+                        <div class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" class="custom-control-input sidebartoggler" name="collapssidebar" id="collapssidebar">
+                            <label class="custom-control-label" for="collapssidebar">Collapse Sidebar</label>
+                        </div>
+                        <div class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" class="custom-control-input" name="sidebar-position" id="sidebar-position">
+                            <label class="custom-control-label" for="sidebar-position">Fixed Sidebar</label>
+                        </div>
+                        <div class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" class="custom-control-input" name="header-position" id="header-position">
+                            <label class="custom-control-label" for="header-position">Fixed Header</label>
+                        </div>
+                        <div class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" class="custom-control-input" name="boxed-layout" id="boxed-layout">
+                            <label class="custom-control-label" for="boxed-layout">Boxed Layout</label>
+                        </div>
+                    </div>
+                    <div class="p-3 border-bottom">
+                        <!-- Logo BG -->
+                        <h5 class="font-medium mb-2 mt-2">Logo Backgrounds</h5>
+                        <ul class="theme-color">
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-logobg="skin1"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-logobg="skin2"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-logobg="skin3"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-logobg="skin4"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-logobg="skin5"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-logobg="skin6"></a>
+                            </li>
+                        </ul>
+                        <!-- Logo BG -->
+                    </div>
+                    <div class="p-3 border-bottom">
+                        <!-- Navbar BG -->
+                        <h5 class="font-medium mb-2 mt-2">Navbar Backgrounds</h5>
+                        <ul class="theme-color">
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin1"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin2"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin3"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin4"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin5"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin6"></a>
+                            </li>
+                        </ul>
+                        <!-- Navbar BG -->
+                    </div>
+                    <div class="p-3 border-bottom">
+                        <!-- Logo BG -->
+                        <h5 class="font-medium mb-2 mt-2">Sidebar Backgrounds</h5>
+                        <ul class="theme-color">
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin1"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin2"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin3"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin4"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin5"></a>
+                            </li>
+                            <li class="theme-item">
+                                <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin6"></a>
+                            </li>
+                        </ul>
+                        <!-- Logo BG -->
+                    </div>
+                </div>
+                <!-- End Tab 1 -->
+                <!-- Tab 2 -->
+                <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <ul class="mailbox list-style-none mt-3">
+                        <li>
+                            <div class="message-center chat-scroll">
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_1' data-user-id='1'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/1.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status online pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Pavan kumar</h5>
+                                        <span class="mail-desc">Just see the my admin!</span>
+                                        <span class="time">9:30 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_2' data-user-id='2'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/2.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status busy pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Sonu Nigam</h5>
+                                        <span class="mail-desc">I've sung a song! See you at</span>
+                                        <span class="time">9:10 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_3' data-user-id='3'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/3.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status away pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Arijit Sinh</h5>
+                                        <span class="mail-desc">I am a singer!</span>
+                                        <span class="time">9:08 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_4' data-user-id='4'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/4.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status offline pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Nirav Joshi</h5>
+                                        <span class="mail-desc">Just see the my admin!</span>
+                                        <span class="time">9:02 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_5' data-user-id='5'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/5.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status offline pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Sunil Joshi</h5>
+                                        <span class="mail-desc">Just see the my admin!</span>
+                                        <span class="time">9:02 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_6' data-user-id='6'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/6.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status offline pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Akshay Kumar</h5>
+                                        <span class="mail-desc">Just see the my admin!</span>
+                                        <span class="time">9:02 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_7' data-user-id='7'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/7.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status offline pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Pavan kumar</h5>
+                                        <span class="mail-desc">Just see the my admin!</span>
+                                        <span class="time">9:02 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <!-- Message -->
+                                <a href="javascript:void(0)" class="message-item" id='chat_user_8' data-user-id='8'>
+                                    <span class="user-img">
+                                        <img src="<?=base_url()?>appsources/assets/images/users/8.jpg" alt="user" class="rounded-circle">
+                                        <span class="profile-status offline pull-right"></span>
+                                    </span>
+                                    <div class="mail-contnet">
+                                        <h5 class="message-title">Varun Dhavan</h5>
+                                        <span class="mail-desc">Just see the my admin!</span>
+                                        <span class="time">9:02 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Tab 2 -->
+                <!-- Tab 3 -->
+                <div class="tab-pane fade p-3" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <h6 class="mt-3 mb-3">Activity Timeline</h6>
+                    <div class="steamline">
+                        <div class="sl-item">
+                            <div class="sl-left bg-success">
+                                <i class="ti-user"></i>
+                            </div>
+                            <div class="sl-right">
+                                <div class="font-medium">Meeting today
+                                    <span class="sl-date"> 5pm</span>
                                 </div>
-                            </div><!-- .section-bg -->
-                            <div class="section-content relative">
-                                <div class="row row-collapse row-full-width align-middle"  id="row-1302591220">
-                                    <div class="col medium-6 small-12 large-6"  >
-                                        <div class="col-inner text-left" style="max-width:520px;padding:5% 5% 5% 0px;" >
-                                            <h3>ABOUT <span style="color: #0db14b;">TEKIRO TOOLS</span></h3>
-                                            <p><strong>TEKIRO Tools</strong> is a trusted brand for high-quality hand tools product which provides wide range of product selections from industrial to home-use.</p>
-                                            <p><strong>TEKIRO Tools</strong> is designed and produced to meet the needs of users in function,durability, comfortability and safety use.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col medium-3 small-6 large-3"  >
-                                        <div class="col-inner text-right"  >
-                                            <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1300144203">
-                                                <div class="img-inner dark" >
-                                                    <img width="300" height="302" src="<?=base_url()?>appsources/image/log_topbrand_300-1.png" class="attachment-large size-large" alt="" srcset="<?=base_url()?>appsources/image/log_topbrand_300-1.png 300w, <?=base_url()?>appsources/image/log_topbrand_300-1-150x150.png 150w, <?=base_url()?>appsources/image/log_topbrand_300-1-298x300.png 298w" sizes="(max-width: 300px) 100vw, 300px" />                
-                                                </div>
-                                                <style scope="scope">
-                                                    #image_1300144203 {
-                                                        width: 100%;
-                                                    }
-
-
-                                                    @media (min-width:550px) {
-                                                        #image_1300144203 {
-                                                            width: 60%;
-                                                        }
-                                                    }
-                                                </style>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col medium-3 small-6 large-3"  >
-                                        <div class="col-inner text-right"  >
-                                            <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1300144203">
-                                                <div class="img-inner dark" >
-                                                    <img width="300" height="302" src="<?=base_url()?>appsources/image/LOGO-IDPBA-2016-BOLD-1-300x300.png" class="attachment-large size-large" alt="" />                
-                                                </div>
-                                                <style scope="scope">
-                                                    #image_1300144203 {
-                                                        width: 100%;
-                                                    }
-
-
-                                                    @media (min-width:550px) {
-                                                        #image_1300144203 {
-                                                            width: 60%;
-                                                        }
-                                                    }
-                                                </style>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="desc">you can write anything </div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left bg-info">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="sl-right">
+                                <div class="font-medium">Send documents to Clark</div>
+                                <div class="desc">Lorem Ipsum is simply </div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left">
+                                <img class="rounded-circle" alt="user" src="<?=base_url()?>appsources/assets/images/users/2.jpg"> </div>
+                            <div class="sl-right">
+                                <div class="font-medium">Go to the Doctor
+                                    <span class="sl-date">5 minutes ago</span>
                                 </div>
-                            </div><!-- .section-content -->
-                            <style scope="scope">
-
-                            #section_1528428793 {
-                                padding-top: 0px;
-                                padding-bottom: 0px;
-                                background-color: rgb(0,0,0);
-                            }
-                            </style>
-                        </section>
-                        <section class="section hide-for-small" id="section_1848601974">
-                            <div class="bg section-bg fill bg-fill  bg-loaded" >
-                        </div><!-- .section-bg -->
-                        <div class="section-content relative">
-                            <div class="row"  id="row-1883079169">
-                                <div class="col small-12 large-12"  >
-                                    <div class="col-inner"  >
-                                        <div class="banner has-hover" id="banner-427889294">
-                                            <div class="banner-inner fill">
-                                                <div class="banner-bg fill" >
-                                                    <div class="bg fill bg-fill "></div>
-                                                </div><!-- bg-layers -->
-                                                <div class="banner-layers container">
-                                                    <div class="fill banner-link"></div>
-                                                        <div id="text-box-298163773" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                                            <div class="text dark">
-                                                                <div class="text-inner text-center">
-                                                                    <h2 style="text-align: center;"><span style="color: #0db14b;">
-                                                                        <strong>Subscribe to </strong></span>
-                                                                        <span style="color: #0db14b;"><strong>TEKIRO Tools </strong></span>
-                                                                        <span style="color: #0db14b;"><strong>Newsletter</strong></span>
-                                                                    </h2>
-                                                                    <p style="text-align: center;">
-                                                                        <span style="color: #ffffff;">Be the priority to get the latest updates on TEKIRO products, events and promotions.</span>
-                                                                    </p>
-                                                                    <p style="text-align: center;">
-	                                                                    <section id="yikes-mailchimp-container-2" class="yikes-mailchimp-container yikes-mailchimp-container-2 ">
-                                                                        <form id="footer-embed-en-2" class="yikes-easy-mc-form yikes-easy-mc-form-2 yikes-mailchimp-form-inline  footer-id" method="POST" data-attr-form-id="2">
-													                        <label for="yikes-easy-mc-form-2-NAME"  class="label-inline NAME-label yikes-mailchimp-field-required ">
-                                                                                <input id="yikes-easy-mc-form-2-NAME"  name="NAME"  placeholder="Full Name"  class="yikes-easy-mc-text field-no-label"  required="required" type="text"  value="">
-                                                                            </label>
-                                                                            <label for="yikes-easy-mc-form-2-EMAIL"  class="label-inline EMAIL-label yikes-mailchimp-field-required ">
-                                                                                <input id="yikes-easy-mc-form-2-EMAIL"  name="EMAIL"  placeholder="Email Address"  class="yikes-easy-mc-email field-no-label"  required="required" type="email"  value="">
-                                                                            </label>
-                                                                            <input type="hidden" name="yikes-mailchimp-honeypot" id="yikes-mailchimp-honeypot" value="">
-                                                                            <input type="hidden" name="yikes-mailchimp-associated-list-id" id="yikes-mailchimp-associated-list-id" value="def53f2e77">
-                                                                            <input type="hidden" name="yikes-mailchimp-submitted-form" id="yikes-mailchimp-submitted-form" value="2">
-                                                                            <label class="empty-form-inline-label submit-button-inline-label"><span class="empty-label labels-hidden">&nbsp;</span><button type="submit" class="yikes-easy-mc-submit-button yikes-easy-mc-submit-button-2 btn btn-primary footer-id-submit"> <span class="yikes-mailchimp-submit-button-span-text">Subscribe</span></button></label>				<!-- Nonce Security Check -->
-                                                                            <input type="hidden" id="yikes_easy_mc_new_subscriber" name="yikes_easy_mc_new_subscriber" value="072601a14c" /><input type="hidden" name="_wp_http_referer" value="/" />
-                                                                        </form>
-                                                                    </p>
-                                                                </section>
-                                                            </div>
-                                                        </div><!-- text-box-inner -->                            
-                                                        <style scope="scope">
-                                                            #text-box-298163773 {
-                                                                width: 100%;
-                                                                }
-                                                                #text-box-298163773 .text {
-                                                                font-size: 100%;
-                                                                }
-
-
-                                                                @media (min-width:550px) {
-
-                                                                #text-box-298163773 .text {
-                                                                    font-size: 77%;
-                                                                }
-                                                            }
-                                                        </style>
-                                                    </div>
-                                                </div><!-- .banner-layers -->
-                                            </div><!-- .banner-inner -->            
-                                            <style scope="scope">
-                                                #banner-427889294 {
-                                                    padding-top: 175px;
-                                                    background-color: rgb(0,0,0);
-                                                }
-                                            </style>
-                                        </div><!-- .banner -->
-                                    </div>
+                                <div class="desc">Contrary to popular belief</div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left">
+                                <img class="rounded-circle" alt="user" src="<?=base_url()?>appsources/assets/images/users/1.jpg"> </div>
+                            <div class="sl-right">
+                                <div>
+                                    <a href="javascript:void(0)">Stephen</a>
+                                    <span class="sl-date">5 minutes ago</span>
                                 </div>
-<div class="col medium-3 small-12 large-3"  ><div class="col-inner box-shadow-1 box-shadow-3-hover"  >
-
-
-  <div class="banner has-hover" id="banner-2001618292">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-1537388520" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="https://www.facebook.com/TekiroTools/" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
-  <i class="fa fa-facebook" ></i>  <span>@TekiroTools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-1537388520 {
-  width: 77%;
-}
-#text-box-1537388520 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-            
-<style scope="scope">
-
-#banner-2001618292 {
-  padding-top: 60px;
-  background-color: rgb(59, 89, 152);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col medium-3 small-12 large-3"  ><div class="col-inner box-shadow-1 box-shadow-3-hover"  >
-
-
-  <div class="banner has-hover" id="banner-1646233552">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-400219830" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="https://twitter.com/tekiro_tools" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
-  <i class="fa fa-twitter" ></i>  <span>@Tekiro_Tools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-400219830 {
-  width: 77%;
-}
-#text-box-400219830 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-            
-<style scope="scope">
-
-#banner-1646233552 {
-  padding-top: 60px;
-  background-color: rgb(0, 132, 180);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col medium-3 small-12 large-3"  ><div class="col-inner box-shadow-1 box-shadow-3-hover"  >
-
-
-  <div class="banner has-hover" id="banner-457437803">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-2146771147" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="http://instagram.com/tekiro_tools" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
-  <i class="fa fa-instagram" ></i>  <span>@Tekiro_Tools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-2146771147 {
-  width: 77%;
-}
-#text-box-2146771147 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-            
-<style scope="scope">
-
-#banner-457437803 {
-  padding-top: 60px;
-  background-color: rgb(81, 127, 164);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col medium-3 small-12 large-3"  ><div class="col-inner box-shadow-1 box-shadow-3-hover"  >
-
-
-  <div class="banner has-hover" id="banner-1249143283">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-4284493" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="https://www.youtube.com/channel/UCsnPx6TfcXkTRD_dybyxJjA" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
-  <i class="fa fa-youtube" ></i>  <span>c/Tekiro_Tools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-4284493 {
-  width: 77%;
-}
-#text-box-4284493 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-            
-<style scope="scope">
-
-#banner-1249143283 {
-  padding-top: 60px;
-  background-color: rgb(187, 0, 0);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-
-</div>
-
-      </div><!-- .section-content -->
-
-      
-<style scope="scope">
-
-#section_1848601974 {
-  padding-top: 39px;
-  padding-bottom: 39px;
-  margin-bottom: 0px;
-  background-color: #0DB14B;
-}
-</style>
-  </section>
-  
-  <section class="section show-for-small" id="section_1667469188">
-      <div class="bg section-bg fill bg-fill  bg-loaded" >
-
-        
-        
-        
-        
-        
-        
-
-      </div><!-- .section-bg -->
-
-      <div class="section-content relative">
-        
-
-  <div class="banner-grid-wrapper">
-  <div id="banner-grid-1757855175" class="banner-grid row row-grid row-small row-box-shadow-2 row-box-shadow-2-hover" data-packery-options="">
-                      
-
-<div class="col grid-col large-12 grid-col-1" ><div class="col-inner">
-
-
-  <div class="banner has-hover" id="banner-1151294679">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <div class="fill banner-link"></div>            
-
-   <div id="text-box-112544367" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<h2 style="text-align: center;"><span style="color: #0db14b;"><strong>Subscribe to </strong></span><span style="color: #0db14b;"><strong>TEKIRO Tools </strong></span><span style="color: #0db14b;"><strong>Newsletter</strong></span></h2>
-<p style="text-align: center;"><span style="color: #ffffff;">Be the prioritized person to get information about the latest products, events, and promo of TEKIRO Tools</span>.</p>
-<p style="text-align: center;">
-	<section id="yikes-mailchimp-container-2" class="yikes-mailchimp-container yikes-mailchimp-container-2 ">
-				<form id="footer-embed-en-2" class="yikes-easy-mc-form yikes-easy-mc-form-2 yikes-mailchimp-form-inline  footer-id" method="POST" data-attr-form-id="2">
-
-													<label for="yikes-easy-mc-form-2-NAME"  class="label-inline NAME-label yikes-mailchimp-field-required ">
-
-										<!-- dictate label visibility -->
-										
-										<!-- Description Above -->
-										
-										<input id="yikes-easy-mc-form-2-NAME"  name="NAME"  placeholder="Full Name"  class="yikes-easy-mc-text field-no-label"  required="required" type="text"  value="">
-
-										<!-- Description Below -->
-										
-									</label>
-																		<label for="yikes-easy-mc-form-2-EMAIL"  class="label-inline EMAIL-label yikes-mailchimp-field-required ">
-
-										<!-- dictate label visibility -->
-										
-										<!-- Description Above -->
-										
-										<input id="yikes-easy-mc-form-2-EMAIL"  name="EMAIL"  placeholder="Email Address"  class="yikes-easy-mc-email field-no-label"  required="required" type="email"  value="">
-
-										<!-- Description Below -->
-										
-									</label>
-									
-				<!-- Honeypot Trap -->
-				<input type="hidden" name="yikes-mailchimp-honeypot" id="yikes-mailchimp-honeypot" value="">
-
-				<!-- List ID -->
-				<input type="hidden" name="yikes-mailchimp-associated-list-id" id="yikes-mailchimp-associated-list-id" value="def53f2e77">
-
-				<!-- The form that is being submitted! Used to display error/success messages above the correct form -->
-				<input type="hidden" name="yikes-mailchimp-submitted-form" id="yikes-mailchimp-submitted-form" value="2">
-
-				<!-- Submit Button -->
-				<label class="empty-form-inline-label submit-button-inline-label"><span class="empty-label labels-hidden">&nbsp;</span><button type="submit" class="yikes-easy-mc-submit-button yikes-easy-mc-submit-button-2 btn btn-primary footer-id-submit"> <span class="yikes-mailchimp-submit-button-span-text">Subscribe</span></button></label>				<!-- Nonce Security Check -->
-				<input type="hidden" id="yikes_easy_mc_new_subscriber" name="yikes_easy_mc_new_subscriber" value="072601a14c" /><input type="hidden" name="_wp_http_referer" value="/" />
-			</form>
-			<!-- MailChimp Form generated by Easy Forms for MailChimp v6.3.30 (https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/) -->
-
-			</section>
-	
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-112544367 {
-  width: 100%;
-}
-#text-box-112544367 .text {
-  font-size: 100%;
-}
-
-
-@media (min-width:550px) {
-
-  #text-box-112544367 .text {
-    font-size: 77%;
-  }
-
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-              <div class="height-fix is-invisible"></div>
-            
-<style scope="scope">
-
-#banner-1151294679 {
-  background-color: rgb(0,0,0);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col grid-col small-12 large-3 grid-col-1-4" data-animate="none"><div class="col-inner box-shadow-3 box-shadow-3-hover">
-
-
-  <div class="banner has-hover" id="banner-650767899">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-568727522" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="https://www.facebook.com/TekiroTools/" target="_blank" class="button white is-underline lowercase expand"  >
-  <i class="fa fa-facebook" ></i>  <span>@TekiroTools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-568727522 {
-  width: 77%;
-}
-#text-box-568727522 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-              <div class="height-fix is-invisible"></div>
-            
-<style scope="scope">
-
-#banner-650767899 {
-  background-color: rgb(59, 89, 152);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col grid-col small-12 large-3 grid-col-1-4" data-animate="none"><div class="col-inner box-shadow-3 box-shadow-3-hover">
-
-
-  <div class="banner has-hover" id="banner-345232366">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-801931530" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="https://twitter.com/tekiro_tools" target="_blank" class="button white is-underline lowercase expand"  >
-  <i class="fa fa-twitter" ></i>  <span>@Tekiro_Tools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-801931530 {
-  width: 77%;
-}
-#text-box-801931530 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-              <div class="height-fix is-invisible"></div>
-            
-<style scope="scope">
-
-#banner-345232366 {
-  background-color: rgb(0, 132, 180);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col grid-col small-12 large-3 grid-col-1-4" data-animate="none"><div class="col-inner box-shadow-3 box-shadow-3-hover">
-
-
-  <div class="banner has-hover" id="banner-1462650024">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-1627069401" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="http://instagram.com/tekiro_tools" target="_blank" class="button white is-underline lowercase expand"  >
-  <i class="fa fa-instagram" ></i>  <span>@Tekiro_Tools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-1627069401 {
-  width: 77%;
-}
-#text-box-1627069401 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-              <div class="height-fix is-invisible"></div>
-            
-<style scope="scope">
-
-#banner-1462650024 {
-  background-color: rgb(81, 127, 164);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-<div class="col grid-col small-12 large-3 grid-col-1-4" data-animate="none"><div class="col-inner box-shadow-3 box-shadow-3-hover">
-
-
-  <div class="banner has-hover" id="banner-1815001641">
-          <div class="banner-inner fill">
-        <div class="banner-bg fill" >
-            <div class="bg fill bg-fill "></div>
-                                    
-	<div class="is-border"
-		style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;">
-	</div>
-                    </div><!-- bg-layers -->
-        <div class="banner-layers container">
-            <a href="https://www.facebook.com/TekiroTools/" target="_blank" class="fill"><div class="fill banner-link"></div></a>            
-
-   <div id="text-box-943955572" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
-                                <div class="text dark">
-              
-              <div class="text-inner text-center">
-                  
-
-<a href="https://www.youtube.com/channel/UCsnPx6TfcXkTRD_dybyxJjA" target="_blank" class="button white is-underline lowercase expand"  >
-  <i class="fa fa-youtube" ></i>  <span>c/Tekiro_Tools</span>
-  </a>
-
-
-
-              </div>
-           </div><!-- text-box-inner -->
-                            
-<style scope="scope">
-
-#text-box-943955572 {
-  width: 77%;
-}
-#text-box-943955572 .text {
-  font-size: 100%;
-}
-</style>
-    </div><!-- text-box -->
- 
-
-        </div><!-- .banner-layers -->
-      </div><!-- .banner-inner -->
-
-              <div class="height-fix is-invisible"></div>
-            
-<style scope="scope">
-
-#banner-1815001641 {
-  background-color: rgb(187, 0, 0);
-}
-</style>
-  </div><!-- .banner -->
-
-
-
-</div></div>
-
-            </div><!-- .banner-grid .row .grid -->
-    <style scope="scope">
-    #banner-grid-1757855175 .grid-col-1{height: 150px}
-    #banner-grid-1757855175 .grid-col-1-2{height: 75px}
-    #banner-grid-1757855175 .grid-col-1-3{height:50px}
-    #banner-grid-1757855175 .grid-col-2-3{height: 100px}
-    #banner-grid-1757855175 .grid-col-1-4{height: 37.5px}
-    #banner-grid-1757855175 .grid-col-3-4{height: 112.5px}
-
-        /* Mobile */
-    @media (max-width: 550px){
-      #banner-grid-1757855175 .grid-col-1{height: 350px}
-      #banner-grid-1757855175 .grid-col-1-2{height: 175px}
-      #banner-grid-1757855175 .grid-col-1-3{height:116.66666666667px}
-      #banner-grid-1757855175 .grid-col-2-3{height: 233.33333333333px}
-      #banner-grid-1757855175 .grid-col-1-4{height: 87.5px}
-      #banner-grid-1757855175 .grid-col-3-4{height: 262.5px}
-    }
-    
-      </style>
-    </div><!-- .banner-grid-wrapper -->
-  
-
-      </div><!-- .section-content -->
-
-      
-<style scope="scope">
-
-#section_1667469188 {
-  padding-top: 39px;
-  padding-bottom: 39px;
-  margin-bottom: 0px;
-  background-color: #0DB14B;
-}
-</style>
-  </section>
-  
-<div class="row"  id="row-1478128349">
-
-<div class="col medium-6 small-12 large-6"  ><div class="col-inner"  >
-
-
-</div></div>
-<div class="col medium-6 small-12 large-6"  ><div class="col-inner"  >
-
-
-</div></div>
-
-</div>
-		</div>		
-		        
-		</div><!-- end row -->
-</div><!-- footer 1 -->
-
-
-<!-- FOOTER 2 -->
-
-
-
-<div class="absolute-footer dark medium-text-center small-text-center">
-  <div class="container clearfix">
-
-    
-    <div class="footer-primary pull-left">
-            <div class="copyright-footer">
-        © 2019 TEKIRO® Tools. All Rights Reserved.      </div>
-          </div><!-- .left -->
-  </div><!-- .container -->
-</div><!-- .absolute-footer -->
-<a href="#top" class="back-to-top button invert plain is-outline hide-for-medium icon circle fixed bottom z-1" id="top-link"><i class="fa fa-angle-up" ></i></a>
-
-</footer><!-- .footer-wrapper -->
-
-</div><!-- #wrapper -->
-
-<!-- Mobile Sidebar -->
-<div id="main-menu" class="mobile-sidebar no-scrollbar mfp-hide">
-    <div class="sidebar-menu no-scrollbar text-center">
-        <ul class="nav nav-sidebar nav-anim nav-vertical nav-uppercase">
-              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2643 current_page_item menu-item-2645"><a href="https://tekiro.com/" class="nav-top-link">HOME</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2711"><a href="https://tekiro.com/products/" class="nav-top-link">PRODUCTS</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2646"><a href="https://tekiro.com/events/" class="nav-top-link">EVENTS</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2648"><a href="https://tekiro.com/contact/" class="nav-top-link">CONTACT</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3118"><a href="https://tekiro.com/faqs/" class="nav-top-link">FAQ</a></li>
-<li class="lang-item lang-item-26 lang-item-id lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-2650-id"><a href="https://tekiro.com/id/" class="nav-top-link"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFASURBVHjaYrwvyMzw6S8DGPwD0//ACAj+wNj/kNgAAcTC8P6vUF87UPr/v38M//79//v3/18g+Yfh35//v//++/vn/x8g+v3/N4hxe9YigABiYWAGG/biOQNI6V+wNBj9/f0PqOj3738g1b////rFLCUNtAEggFgY/jIAjYSo/gdWygBU8ec3iP37z7/fv0DsXyARxj9AOQaAAGIBOe7b179fPv3/85cBah5Q6a9/v8HafoOM//frF1CckYf3FwMDQACxCOSmctjY//34EeSef2AEchiY8QfsB4jlf/8yCwiKnT8LEECMf/+CguY/EDCAIW7AxMT0/v17gABi+ffvHyMjI0g9Az7VEFmgLwACiAmoAb9SNG0AAQSyAWgXRA8DDADtZEABQC5IFqgYIIBAGn78+PEPAhjAEAeAaAUIMAD/YnbumkL3sQAAAABJRU5ErkJggg==" title="ID" alt="ID" /></a></li>
-<li class="html header-social-icons ml-0">
-	    <div class="social-icons follow-icons " >
-    	    	    	<a href="https://facebook.com/TekiroTools/" target="_blank" data-label="Facebook"  rel="nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="fa fa-facebook" ></i>    	</a>
-						    <a href="https://instagram.com/tekiro_tools/" target="_blank" rel="nofollow" data-label="Instagram" class="icon plain  instagram tooltip" title="Follow on Instagram"><i class="fa fa-instagram" ></i>		   </a>
-							       <a href="https://twitter.com/tekiro_tools" target="_blank"  data-label="Twitter"  rel="nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="fa fa-twitter" ></i>	       </a>
-																				     </div>
-
-	</li>        </ul>
-    </div><!-- inner -->
-</div><!-- #mobile-menu -->
-<?=$this->layout->headersourcejs()?>
-</body>
+                                <div class="desc">Approve meeting with tiger</div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left bg-primary">
+                                <i class="ti-user"></i>
+                            </div>
+                            <div class="sl-right">
+                                <div class="font-medium">Meeting today
+                                    <span class="sl-date"> 5pm</span>
+                                </div>
+                                <div class="desc">you can write anything </div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left bg-info">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="sl-right">
+                                <div class="font-medium">Send documents to Clark</div>
+                                <div class="desc">Lorem Ipsum is simply </div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left">
+                                <img class="rounded-circle" alt="user" src="<?=base_url()?>appsources/assets/images/users/4.jpg"> </div>
+                            <div class="sl-right">
+                                <div class="font-medium">Go to the Doctor
+                                    <span class="sl-date">5 minutes ago</span>
+                                </div>
+                                <div class="desc">Contrary to popular belief</div>
+                            </div>
+                        </div>
+                        <div class="sl-item">
+                            <div class="sl-left">
+                                <img class="rounded-circle" alt="user" src="<?=base_url()?>appsources/assets/images/users/6.jpg"> </div>
+                            <div class="sl-right">
+                                <div>
+                                    <a href="javascript:void(0)">Stephen</a>
+                                    <span class="sl-date">5 minutes ago</span>
+                                </div>
+                                <div class="desc">Approve meeting with tiger</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Tab 3 -->
+            </div>
+        </div>
+    </aside>
+    <div class="chat-windows"></div>
+    <?=$this->layout->footer()?>
+</html>

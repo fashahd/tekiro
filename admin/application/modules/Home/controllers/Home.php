@@ -13,7 +13,9 @@ class Home extends MX_Controller {
 
 	public function front()
 	{
-		$data["module"] = "Login";
-		$this->load->view('front',$data);
+		$session = $this->session->userdata("userlogin");
+		$data["name"]	= $session["name"];
+		$data["module"] = "Home";
+		$this->layout->content('front',$data);
 	}
 }

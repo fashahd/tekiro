@@ -24,4 +24,9 @@ class Auth extends MX_Controller {
 		echo $cek;
 		return;
 	}
+
+	function signout(){
+		// $this->session->unset_userdata("userlogin");
+		// header("location : ".base_url());
+	}
 }
