@@ -36,7 +36,7 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-    <form action="<?=base_url()?>appsources/index2.html" method="post">
+    <form id="formlogin" method="post">
       <div class="form-group has-feedback">
         <input id="username" type="text" class="form-control" placeholder="Username" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -65,7 +65,9 @@
 <script src="<?=base_url()?>appsources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="<?=base_url()?>appsources/plugins/iCheck/icheck.min.js"></script>
+<script src="<?=base_url()?>appsources/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="<?=base_url()?>appsources/apps/default.js"></script>
+<script src="<?=base_url()?>appsources/apps/login.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
