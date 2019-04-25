@@ -68,21 +68,12 @@
                 <script src="'.base_url().'appsources/dist/js/sidebarmenu.js"></script>
                 <!--Custom JavaScript -->
                 <script src="'.base_url().'appsources/dist/js/custom.min.js"></script>
+                <script src="'.base_url().'appsources/plugins/sweetalert/sweetalert.min.js"></script>
                 <!-- This Page JS -->
-                <script src="'.base_url().'appsources/assets/libs/chartist/dist/chartist.min.js"></script>
-                <script src="'.base_url().'appsources/dist/js/pages/chartist/chartist-plugin-tooltip.js"></script>
-                <script src="'.base_url().'appsources/assets/extra-libs/c3/d3.min.js"></script>
-                <script src="'.base_url().'appsources/assets/extra-libs/c3/c3.min.js"></script>
-                <script src="'.base_url().'appsources/assets/libs/raphael/raphael.min.js"></script>
-                <script src="'.base_url().'appsources/assets/libs/morris.js/morris.min.js"></script>
                 <script src="'.base_url().'appsources/dist/js/pages/dashboards/dashboard1.js"></script>
-                <script src="'.base_url().'appsources/assets/libs/moment/min/moment.min.js"></script>
-                <script src="'.base_url().'appsources/assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
-                <script src="'.base_url().'appsources/dist/js/pages/calendar/cal-init.js"></script>
-                <script>
-                    $("#calendar").fullCalendar("option", "height", 650);
-
-                </script>
+                <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
+                <script src="'.base_url().'appsources/apps/default.js"></script>
+                <script src="'.base_url().'appsources/apps/custom.js"></script>
             ';
             return $ret;
         }

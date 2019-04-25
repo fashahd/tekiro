@@ -15,6 +15,11 @@ class Auth extends MX_Controller {
 		$this->load->view('login',$data);
 	}
 
+	function signout(){
+		$this->session->unset_userdata("userlogin");
+		header('Location:'.base_url()); 
+	}
+
 	function validation(){
 		$username 	= $_POST["username"];
 		$password	= md5($_POST["password"]);
@@ -23,10 +28,5 @@ class Auth extends MX_Controller {
 
 		echo $cek;
 		return;
-	}
-
-	function signout(){
-		// $this->session->unset_userdata("userlogin");
-		// header("location : ".base_url());
 	}
 }

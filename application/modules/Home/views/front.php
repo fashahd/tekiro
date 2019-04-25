@@ -1,4 +1,3 @@
-
 		<main id="main" class="">
             <div id="content-home" role="main">
                 <div class="slider-wrapper relative " id="slider-479573776" >

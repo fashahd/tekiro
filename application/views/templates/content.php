@@ -1,3 +1,13 @@
+<?php
+  $sql    = "SELECT * FROM tekiro_general";
+  $query  = $this->db->query($sql);
+  if($query->num_rows()>0){
+    $row = $query->row();
+    $about = $row->about;
+  }else{
+    $about = "";
+  }
+?>
 <?=$this->layout->headersource($module)?>
 <body data-rsssl=1 class="home page-template page-template-page-transparent-header page-template-page-transparent-header-php page page-id-2643 full-width lightbox lazy-icons nav-dropdown-has-arrow wpb-js-composer js-comp-ver-5.1 vc_responsive">
 	<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
@@ -80,9 +90,10 @@
                                 <div class="row row-collapse row-full-width align-middle"  id="row-1302591220">
                                     <div class="col medium-6 small-12 large-6"  >
                                         <div class="col-inner text-left" style="max-width:520px;padding:5% 5% 5% 0px;" >
-                                            <h3>ABOUT <span style="color: #0db14b;">TEKIRO TOOLS</span></h3>
+                                            <?=$about?>
+                                            <!-- <h3>ABOUT <span style="color: #0db14b;">TEKIRO TOOLS</span></h3>
                                             <p><strong>TEKIRO Tools</strong> is a trusted brand for high-quality hand tools product which provides wide range of product selections from industrial to home-use.</p>
-                                            <p><strong>TEKIRO Tools</strong> is designed and produced to meet the needs of users in function,durability, comfortability and safety use.</p>
+                                            <p><strong>TEKIRO Tools</strong> is designed and produced to meet the needs of users in function,durability, comfortability and safety use.</p> -->
                                         </div>
                                     </div>
                                     <div class="col medium-3 small-6 large-3"  >
