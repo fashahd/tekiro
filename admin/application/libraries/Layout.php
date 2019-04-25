@@ -70,7 +70,6 @@
                 <script src="'.base_url().'appsources/dist/js/custom.min.js"></script>
                 <script src="'.base_url().'appsources/plugins/sweetalert/sweetalert.min.js"></script>
                 <!-- This Page JS -->
-                <script src="'.base_url().'appsources/dist/js/pages/dashboards/dashboard1.js"></script>
                 <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
                 <script src="'.base_url().'appsources/apps/default.js"></script>
                 <script src="'.base_url().'appsources/apps/custom.js"></script>
