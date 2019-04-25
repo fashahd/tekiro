@@ -1,56 +1,42 @@
 <?php
 	class ModelHome extends CI_Model {
 
-		function getContent(){
-            $sql    = " SELECT * FROM `tekiro_general`";
-            // return $sql;
-            $query  = $this->db->query($sql);
-            if($query->num_rows()>0){
-                $row        = $query->row();
-                $about      = $row->about;
-                $about_id   = $row->about_id;
-            }else{
-                $about = "";
-                $about_id = "";
-            }
-            return array($about,$about_id);
+        function savecategory($data = null){
+            $query  = $this->db->insert("tekiro_category",$data);
         }
 
-        function savemedia($page=null,$path=null){
-            $data   = array(
-                "path" => $path,
-                "page" => $page
-            );
-            $query  = $this->db->insert("media",$data);
-        }
-
-        function getAward(){
-            $sql = "SELECT * FROM `media`";
+        function getCategorybyID($id = null){
+            $sql = "SELECT * FROM tekiro_category where id = '$id'";
             $query  = $this->db->query($sql);
             $ret = "";
             if($query->num_rows()>0){
-               foreach($query->result() as $row){
+                $row = $query->row();
+                return array($row->title,$row->title_id,$row->subtitle,$row->subtitle_id,$row->path);
+            }else{
+                return false;
+            }           
+        }
+
+        function getCategory(){
+            $sql = "SELECT * FROM tekiro_category";
+            $query  = $this->db->query($sql);
+            $ret = "";
+            if($query->num_rows()>0){
+                foreach($query->result() as $row){
                     $ret .='
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="el-card-item">
-                                    <div class="el-card-avatar el-overlay-1"> 
-                                        <img src="'.base_url().$row->path.'" alt="user" />
-                                        <div class="el-overlay">
-                                            <ul class="list-style-none el-info">
-                                                <li class="el-item">
-                                                    <a class="btn btn-danger btn-outline el-link" href="#" onClick="confirmDelete(\''.$row->id.'\')">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a
-                                                ></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                    <li class="list-group-item">                                
+                        <div class="d-flex no-block align-items-center">
+                            <div>
+                                '.$row->title.'
+                            </div>
+                            <div class="ml-auto">
+                                <a href="'.base_url().'home/editcategory/'.$row->id.'" class="btn btn-primary btn-circle"><i class="fa fa-edit"></i> </a>
+                                <button onClick="confirmDeleteCategory(\''.$row->id.'\')" type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i> </button>
                             </div>
                         </div>
+                    </li>
                     ';
-               }
+                }
             }else{
                 $ret = "";
             }

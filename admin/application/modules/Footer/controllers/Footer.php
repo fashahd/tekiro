@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends MX_Controller {
+class Footer extends MX_Controller {
 
 	function __construct()
 	{
@@ -9,30 +9,22 @@ class Home extends MX_Controller {
 		if(!$this->session->userdata("userlogin")){
 			redirect('/auth/login', 'refresh');
 		}
-		$this->load->model("ModelHome");
+		$this->load->model("ModelFooter");
 	}
 
 	public function front()
 	{
 		$session = $this->session->userdata("userlogin");
-		$data["category"]	= $this->ModelHome->getCategory();
+		$data["content"] 	= $this->ModelFooter->getContent();
+		$data["award"]		= $this->ModelFooter->getAward();
 		$data["name"]		= $session["name"];
 		$data["module"] 	= "Home";
 		$this->layout->content('front',$data);
 	}
 
-	public function editcategory($id = null)
-	{
-		$session = $this->session->userdata("userlogin");
-		$data["data"]		= $this->ModelHome->getCategorybyID($id);
-		$data["name"]		= $session["name"];
-		$data["module"] 	= "Home";
-		$this->layout->content('editcategory',$data);
-	}
-
-	function deleteCategory(){
+	function deleteMedia(){
 		if($_POST["id"]){
-			$sql 	= "SELECT path FROM tekiro_category WHERE id = '$_POST[id]'";
+			$sql 	= "SELECT path FROM media WHERE id = '$_POST[id]'";
 			$query 	= $this->db->query($sql);
 			if($query->num_rows()>0){
 				$row = $query->row();
@@ -40,16 +32,16 @@ class Home extends MX_Controller {
 					unlink($row->path);
 				}
 				$this->db->where("id",$_POST["id"]);
-				$query = $this->db->delete("tekiro_category");
+				$query = $this->db->delete("media");
 		
 				$data = array(
 					"status" 	=> 200,
-					"message"	=> "Category Deleted"
+					"message"	=> "Media Deleted"
 				);
 			}else{
 				$data = array(
 					"status" 	=> 400,
-					"message"	=> "Failed To Category Media"
+					"message"	=> "Failed To Delete Media"
 				);
 			}
 		}
@@ -57,7 +49,7 @@ class Home extends MX_Controller {
 		return;
 	}
 
-	function addCategory(){
+	function uploadImage(){
 		if($_FILES["media"]["name"] != ''){
 			$validextensions = array("jpeg", "jpg", "png");
 			$temporary 		= explode(".", $_FILES["media"]["name"]);
@@ -77,20 +69,13 @@ class Home extends MX_Controller {
 					$tmppath="appsources/media/".uniqid(rand()).".".$type; // uniqid(rand()) function generates unique random number.
 					move_uploaded_file($_FILES['media']['tmp_name'],$tmppath);
 					$response = "success";
-					$message = "Category Added";
+					$message = "Image Uploaded";
 					$image1 = $tmppath;
-					$data = array(
-						"path" 		=> $image1,
-						"title" 	=> $_POST["title"],
-						"title_id" 	=> $_POST["title_id"],
-						"subtitle" 	=> $_POST["subtitle"],
-						"subtitle_id" 	=> $_POST["subtitle_id"],
-					);
-					$return = $this->ModelHome->savecategory($data);
+					$return = $this->ModelFooter->savemedia("footer",$image1);
 				}
 			}else
 			{
-				$message = "Image Size More Than 2MB";
+				$message = "Size More Than 2MB";
 				$response = "max_upload";
 			}
 		
@@ -101,5 +86,22 @@ class Home extends MX_Controller {
 			echo json_encode($data);
 			return;
 		}
+	}
+
+	function updateAbout(){
+		$this->db->where("id","1");
+		$query = $this->db->update("tekiro_general",array("about"=>$_POST["content"],"about_id"=>$_POST["content_id"]));
+		if($query){
+			$return = array(
+				"status" => 200,
+				"message" => "Content Updated"
+			);
+		}else{
+			$return = array(
+				"status" => 401,
+				"message" => "Failed to update content"
+			);
+		}
+		echo json_encode($return);
 	}
 }

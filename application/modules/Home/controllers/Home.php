@@ -11,9 +11,10 @@ class Home extends MX_Controller {
 
 	public function front()
 	{
-		$data["about"] 	= $this->ModelHome->getFooterLeft();
-		$data["award"] 	= $this->ModelHome->getFooterRight();
-		$data["module"] = "Home";
+		$data["category"] 	= $this->ModelHome->getCategory();
+		$data["about"] 		= $this->ModelHome->getFooterLeft();
+		$data["award"] 		= $this->ModelHome->getFooterRight();
+		$data["module"] 	= "Home";
 		$this->layout->content('front',$data);
 	}
 }

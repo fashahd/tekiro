@@ -144,6 +144,12 @@
                                 <span class="hide-menu">FAQ</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark" href="<?=base_url()?>footer" aria-expanded="false">
+                                <i class="mdi mdi-comment-question"></i>
+                                <span class="hide-menu">Footer</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

@@ -39,6 +39,7 @@
                 <!--[if lt IE 9]>
                 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
                 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <script src="'.base_url().'appsources/assets/libs/jquery/dist/jquery.min.js"></script>
                 <![endif]-->
             </head>
             ';
@@ -70,7 +71,6 @@
                 <script src="'.base_url().'appsources/dist/js/custom.min.js"></script>
                 <script src="'.base_url().'appsources/plugins/sweetalert/sweetalert.min.js"></script>
                 <!-- This Page JS -->
-                <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
                 <script src="'.base_url().'appsources/apps/default.js"></script>
                 <script src="'.base_url().'appsources/apps/custom.js"></script>
             ';

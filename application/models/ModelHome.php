@@ -14,6 +14,68 @@
             }
             return $about;
         }
+        function getCategory(){
+            $sql = "SELECT * FROM tekiro_category";
+            $query  = $this->db->query($sql);
+            $ret = "";
+            if($query->num_rows()>0){
+                foreach($query->result() as $row){
+                    $ret .='                    
+						<div class="col medium-4 small-12 large-4"  >
+							<div class="col-inner">
+								<div class="banner has-hover bg-zoom bg-zoom" id="banner-'.$row->id.'">
+									<div class="banner-inner fill">
+										<div class="banner-bg fill">
+											<div class="bg fill bg-fill  bg-loaded"></div>                                                      
+										</div>
+										<div class="banner-layers container">
+											<div class="fill banner-link"></div>            
+											<div id="text-box-691486452" class="text-box banner-layer x50 md-x50 lg-x50 y10 md-y10 lg-y10 res-text">
+												<div class="text dark">
+													<div class="text-inner text-center">
+														<h2 class="uppercase"><strong>'.$row->title.'</strong></h2>
+														<h4 class="uppercase">'.$row->subtitle.'</h4>
+														<a href="'.base_url().'products/" target="_self" class="button white is-outline"  >
+															<span>See More</span>
+														</a>
+													</div>
+												</div><!-- text-box-inner -->
+											
+												<style scope="scope">
+
+												#text-box-691486452 {
+												  width: 80%;
+												}
+												#text-box-691486452 .text {
+												  font-size: 100%;
+												}
+												</style>
+											</div><!-- text-box --> 
+										</div><!-- .banner-layers -->
+									</div><!-- .banner-inner -->
+							
+									<style scope="scope">
+
+									#banner-'.$row->id.' {
+									  padding-top: 400px;
+									}
+									#banner-'.$row->id.' .bg.bg-loaded {
+									  background-image: url('.base_url()."admin/".$row->path.');
+									}
+									#banner-'.$row->id.' .bg {
+									  background-position: 100% 100%;
+									}
+									</style>
+								</div><!-- .banner -->
+							</div>
+						</div>
+                    ';
+                }
+            }else{
+                $ret = "";
+            }
+            return $ret;
+        }
 		function getFooterRight(){
             $sql    = "SELECT * FROM `media`";
             $query  = $this->db->query($sql);

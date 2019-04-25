@@ -1,6 +1,3 @@
-<?php
-    list($about,$about_id)=$content;
-?>
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
@@ -24,70 +21,65 @@
     <div class="page-content container-fluid">
         <!-- Row -->
         <div class="row">
-            <div class="col-12">
-                <div class="card">
+            <div class="col-6">
+                <div class="card border-right border-info">
                     <div class="card-header">
-                        <h4 class="card-title">Footer</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row el-element-overlay">
-                            <div class="col-lg-12">
-                                <button data-toggle="modal" data-target="#responsive-modal" class="btn btn-primary"><i class="fa fa-upload"></i> Add Image</button>
-                            </div><br><br><br>
-                            <?=$award?>
+                        <h4 class="card-title float-left">Body</h4>
+                        <div class="float-right">
+                            <button data-toggle="modal" data-target="#responsive-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</button>
                         </div>
-                    </div>
-                    <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Add Image</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="formupload">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Upload</span>
+                        <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Add Category</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="formCategory">
+                                            <div class="form-group">
+                                                <label for="title">Title | English</label>
+                                                <input required type="text" class="form-control" id="title" placeholder="Title">
                                             </div>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="media" name="media">
-                                                <label class="custom-file-label" for="media">Choose file</label>
+                                            <div class="form-group">
+                                                <label for="title_id">Title | Indonesia</label>
+                                                <input required type="text" class="form-control" id="title_id" placeholder="Title">
                                             </div>
-                                        </div>
-                                        <small class="form-text text-muted">Max File Size : 2MB</small>
-                                        <div class="progress mt-3" style="height:13px;display:none">
-                                            <div id="progressBar" class="progress-bar bg-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                                <span class="sr-only">0%</span>
+                                            <div class="form-group">
+                                                <label for="subtitle">Sub Title | English</label>
+                                                <input required type="text" class="form-control" id="subtitle" placeholder="Sub Title">
                                             </div>
-                                        </div>
-                                        <br>
-                                        <span type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Close</span>
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">Save changes</button>
-                                    </form>
+                                            <div class="form-group">
+                                                <label for="subtitle_id">Sub Title | Indonesia</label>
+                                                <input required type="text" class="form-control" id="subtitle_id" placeholder="Sub Title">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Upload</span>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="media" name="media">
+                                                    <label class="custom-file-label" for="media">Choose Cover</label>
+                                                </div>
+                                            </div>
+                                            <small class="form-text text-muted">Max File Size : 2MB</small>
+                                            <div class="progress mt-3" style="height:13px;display:none">
+                                                <div id="progressBar" class="progress-bar bg-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                    <span class="sr-only">0%</span>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <span type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Close</span>
+                                            <button type="submit" class="btn btn-info waves-effect waves-light">Save changes</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form class="mt-4" id="footer-form">
-                            <div class="row pt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="footer">Content | English</label>
-                                        <textarea id="footer" name="footer"><?=$about?></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="footer_id">Content | Indonesia</label>
-                                        <textarea id="footer_id" name="footer_id"><?=$about_id?></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
-                        </form>
+                        <ul class="list-group">
+                            <?=$category?>
+                        </ul>
                     </div>
                 </div>
             </div>

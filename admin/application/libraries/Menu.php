@@ -12,7 +12,8 @@
                 "products" => "Products",
                 "event"=>"Event",
                 "contact"=>"Contact",
-                "faq"=>"FAQ"
+                "faq"=>"FAQ",
+                "footer" => "Footer"
             );
             $retmenu = "";
             foreach($arrmenu as $value => $menu){
