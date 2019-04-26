@@ -1,5 +1,20 @@
-
-<
+<?php
+    list($id,$content,$content_id,$title,$title_id,$category,$image_event)=$event;
+    $arrcategory = array(
+        "automotive" => "Automotive",
+        "sponsorship" => "Sponsorship"
+    );
+    
+    $optcategory = "";
+    foreach($arrcategory as $val => $ket){
+        if($category == $val){
+            $slct = "selected";
+        }else{
+            $slct = "";
+        }
+        $optcategory .= '<option '.$slct.' value="'.$val.'">'.$ket.'</option>';
+    }
+?>
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
@@ -27,22 +42,23 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-info">
-                                <h4 class="mb-0 text-white">Add Event</h4>
+                                <h4 class="mb-0 text-white">Edit Event</h4>
                             </div>
-                            <form id="formEvent">
+                            <form id="updateformEvent">
                                 <div class="form-body">
                                     <div class="card-body">
                                         <div class="row pt-3">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Title | English</label>
-                                                    <input required type="text" id="title" class="form-control" placeholder="Event Title">
+                                                    <input value="<?=$title?>" required type="text" id="title" class="form-control" placeholder="Event Title">
+                                                    <input value="<?=$id?>" required type="hidden" id="id" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Title | Indonesia</label>
-                                                    <input required type="text" id="title_id" class="form-control" placeholder="Event Title">
+                                                    <input value="<?=$title_id?>" required type="text" id="title_id" class="form-control" placeholder="Event Title">
                                                 </div>
                                             </div>
                                         </div>
@@ -51,30 +67,32 @@
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Category</label>
                                                     <select id="category" class="form-control custom-select">
-                                                        <option value="automotive">Automotive</option>
-                                                        <option value="sponsorship">Sponsorship</option>
+                                                        <?=$optcategory?>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <h5 >Event Image</h5>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Upload</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input required type="file" class="custom-file-input" id="event_image" name="event_image">
+                                                        <input type="file" class="custom-file-input" id="event_image" name="event_image">
                                                         <label class="custom-file-label" for="event_image">Choose file</label>
                                                     </div>
                                                 </div>
                                                 <small id="textHelp" class="form-text text-muted">Max File Size 2MB</small>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <img style="width:100%" src="<?=base_url().$image_event?>"/>
                                             </div>
                                         </div>
                                         <div class="row pt-3">
                                             <div class="col-md-12">
                                                 <h5>Content | English</h5>
                                                 <div class="form-group has-success">
-                                                    <textarea name="content" class="form-control"></textarea>
+                                                    <textarea name="content" class="form-control"><?=$content?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,7 +100,7 @@
                                             <div class="col-md-12">
                                                 <h5>Content | Indonesia</h5>
                                                 <div class="form-group has-success">
-                                                    <textarea name="content_id" class="form-control"></textarea>
+                                                    <textarea name="content_id" class="form-control"><?=$content_id?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,32 +114,11 @@
                                     <div class="form-actions">
                                         <div class="card-body">
                                             <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                            <button type="button" class="btn btn-dark">Cancel</button>
+                                            <a href="<?=base_url()?>event" class="btn btn-dark">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Category</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?=$event?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

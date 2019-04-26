@@ -1,5 +1,140 @@
 document.addEventListener('contextmenu', event => event.preventDefault());
 
+$('#updateformEvent').submit(function(event) {
+	event.preventDefault();
+	var formData = new FormData(this);
+	formData.append('id', $("#id").val());
+	formData.append('title', $("#title").val());
+	formData.append('title_id', $("#title_id").val());
+	formData.append('category', $("#category").val());
+	formData.append('content', CKEDITOR.instances.content.getData());
+	formData.append('content_id', CKEDITOR.instances.content_id.getData());
+
+	$('.msg').hide();
+	$('.progress').show();	
+	$.ajax({
+		xhr : function() {
+			var xhr = new window.XMLHttpRequest();
+			xhr.upload.addEventListener('progress', function(e){
+				if(e.lengthComputable){
+					console.log('Bytes Loaded : ' + e.loaded);
+					console.log('Total Size : ' + e.total);
+					console.log('Persen : ' + (e.loaded / e.total));
+					
+					var percent = Math.round((e.loaded / e.total) * 100);
+					
+					$('#progressBar').attr('aria-valuenow', percent).css('width', percent + '%').text(percent + '%');
+				}
+			});
+			return xhr;
+		},
+		
+		type : 'POST',
+		url : toUrl+'event/updateEvent',
+		data : formData,
+		processData : false,
+		contentType : false,
+		dataType: "json",
+		success : function(response){
+			$('form')[0].reset();
+			$('.progress').hide();
+			$('.msg').show();
+			if(response.status != "success"){
+				swal({
+					title: "Oopss!",
+					text: response.message,
+					icon: "warning",
+					button: "OK",
+				});
+			}else{			
+				swal({
+					title: "Good job!",
+					text: response.message,
+					icon: "success",
+					button: "OK",
+				}).then((value) => {
+					window.location.reload();
+				});
+			}
+		},error: function(xhr, ajaxOptions, thrownError){            
+			console.log(xhr.responseText);
+			swal({
+				title: "Oopss!",
+				text: "Failed To Connect Server",
+				icon: "warning",
+				button: "OK",
+			});
+		}
+	});
+});
+
+$('#formEvent').submit(function(event) {
+	event.preventDefault();
+	var formData = new FormData(this);
+	formData.append('title', $("#title").val());
+	formData.append('title_id', $("#title_id").val());
+	formData.append('category', $("#category").val());
+	formData.append('content', CKEDITOR.instances.content.getData());
+	formData.append('content_id', CKEDITOR.instances.content_id.getData());
+
+	$('.msg').hide();
+	$('.progress').show();	
+	$.ajax({
+		xhr : function() {
+			var xhr = new window.XMLHttpRequest();
+			xhr.upload.addEventListener('progress', function(e){
+				if(e.lengthComputable){
+					console.log('Bytes Loaded : ' + e.loaded);
+					console.log('Total Size : ' + e.total);
+					console.log('Persen : ' + (e.loaded / e.total));
+					
+					var percent = Math.round((e.loaded / e.total) * 100);
+					
+					$('#progressBar').attr('aria-valuenow', percent).css('width', percent + '%').text(percent + '%');
+				}
+			});
+			return xhr;
+		},
+		
+		type : 'POST',
+		url : toUrl+'event/addEvent',
+		data : formData,
+		processData : false,
+		contentType : false,
+		dataType: "json",
+		success : function(response){
+			$('form')[0].reset();
+			$('.progress').hide();
+			$('.msg').show();
+			if(response.status != "success"){
+				swal({
+					title: "Oopss!",
+					text: response.message,
+					icon: "warning",
+					button: "OK",
+				});
+			}else{			
+				swal({
+					title: "Good job!",
+					text: response.message,
+					icon: "success",
+					button: "OK",
+				}).then((value) => {
+					window.location.reload();
+				});
+			}
+		},error: function(xhr, ajaxOptions, thrownError){            
+			console.log(xhr.responseText);
+			swal({
+				title: "Oopss!",
+				text: "Failed To Connect Server",
+				icon: "warning",
+				button: "OK",
+			});
+		}
+	});
+});
+
 $('#updateSocial').submit(function(event) {
     event.preventDefault();
 	var form = $('#updateSocial');
@@ -296,6 +431,58 @@ $('#editCategory').submit(function(event) {
 		}
 	});
 });
+
+function confirmDeleteEvent(id = null){				
+	swal({
+		title: "Are You Sure ?",
+		text: "event Delete Permanently",
+		icon: "warning",
+		buttons: {
+			cancel: "Cancel",
+			catch: {
+			  	text: "Confirm",
+			  	value: "confirm",
+			}
+		},
+	}).then((value) => {
+		switch (value) { 
+			case "defeat":
+			  	break;
+		 
+			case "confirm":
+				$.ajax({
+					type : 'POST',
+					url  : toUrl+"event/deleteEvent",
+					data : {id:id},
+					dataType: "json",
+					success: function(data){
+						console.log(data);
+						if(data.status == 200){
+							swal({
+								title: "Good job!",
+								text: data.message,
+								icon: "success",
+								button: "OK",
+							}).then((value) => {
+								window.location.reload();
+							});
+						}else{
+							swal({
+								title: "Oopss!",
+								text: data.message,
+								icon: "warning",
+								button: "OK",
+							});
+						}
+					},error: function(xhr, ajaxOptions, thrownError){            
+						console.log(xhr.responseText);
+						$("#loginbutton").html('<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>');
+					}
+				});
+			 	break;
+		}
+	});
+}
 
 function confirmDelete(id = null){				
 	swal({
