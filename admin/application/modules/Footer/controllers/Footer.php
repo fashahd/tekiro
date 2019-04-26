@@ -15,11 +15,34 @@ class Footer extends MX_Controller {
 	public function front()
 	{
 		$session = $this->session->userdata("userlogin");
+		$data["social_media"] = $this->ModelFooter->getSocialMedia();
 		$data["content"] 	= $this->ModelFooter->getContent();
 		$data["award"]		= $this->ModelFooter->getAward();
 		$data["name"]		= $session["name"];
 		$data["module"] 	= "Home";
 		$this->layout->content('front',$data);
+	}
+
+	function updateSocial(){
+		if(count($_POST["social"])>0){
+			for($i=1;$i<=count($_POST["social"]);$i++){
+				$data = array(
+					"username" => $_POST["social"][$i]
+				);
+				$this->db->where("id",$i);
+				$this->db->update("tekiro_social",$data);
+			}
+			$data = array(
+				"status" 	=> 200,
+				"message"	=> "Social Media Updated"
+			);
+		}else{
+			$data = array(
+				"status" 	=> 400,
+				"message"	=> "Social Media Failed To Update"
+			);
+		}
+		echo json_encode($data);
 	}
 
 	function deleteMedia(){

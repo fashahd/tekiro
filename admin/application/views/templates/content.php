@@ -146,7 +146,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark" href="<?=base_url()?>footer" aria-expanded="false">
-                                <i class="mdi mdi-comment-question"></i>
+                                <i class="mdi mdi-page-layout-footer"></i>
                                 <span class="hide-menu">Footer</span>
                             </a>
                         </li>

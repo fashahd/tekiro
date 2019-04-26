@@ -12,7 +12,6 @@ $('#formlogin').submit(function(event) {
 		data : {username:username,password:password},
 		dataType: "json",
 		success: function(data){
-			console.log(data);
 			if(data.status == 'sukses'){
 				swal({
 					title: "Good job!",

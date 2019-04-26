@@ -14,6 +14,7 @@ class Home extends MX_Controller {
 		$data["category"] 	= $this->ModelHome->getCategory();
 		$data["about"] 		= $this->ModelHome->getFooterLeft();
 		$data["award"] 		= $this->ModelHome->getFooterRight();
+		$data["social"] 	= $this->ModelHome->getFooterSocial();
 		$data["module"] 	= "Home";
 		$this->layout->content('front',$data);
 	}

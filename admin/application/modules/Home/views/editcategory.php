@@ -1,5 +1,5 @@
 <?php
-    list($title,$title_id,$subtitle,$subtitle_id,$path)=$data;
+    list($id,$title,$title_id,$subtitle,$subtitle_id,$path)=$data;
 ?>
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -30,10 +30,11 @@
                         <h4 class="card-title">Edit Category</h4>
                     </div>
                     <div class="card-body">
-                        <form id="formCategory">
+                        <form id="editCategory">
                             <div class="form-group">
                                 <label for="title">Title | English</label>
                                 <input value="<?=$title?>" required type="text" class="form-control" id="title" placeholder="Title">
+                                <input value="<?=$id?>" required type="hidden" class="form-control" id="id" placeholder="id">
                             </div>
                             <div class="form-group">
                                 <label for="title_id">Title | Indonesia</label>
@@ -63,8 +64,8 @@
                                 </div>
                             </div>
                             <br>
-                            <a href="<?=base_url()?>" class="btn btn-danger waves-effect" data-dismiss="modal">Back</a>
                             <button type="submit" class="btn btn-info waves-effect waves-light">Save changes</button>
+                            <a href="<?=base_url()?>" class="btn btn-danger waves-effect" data-dismiss="modal">Back</a>
                         </form>
                     </div>
                 </div>

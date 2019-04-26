@@ -5,13 +5,26 @@
             $query  = $this->db->insert("tekiro_category",$data);
         }
 
+        function updateCategory($id=null,$data = null){
+            $this->db->where("id",$id);
+            $query  = $this->db->update("tekiro_category",$data);
+            if($query){
+                $response   = "success";
+                $message    = "Category Updated";
+            }else{
+                $response = "error";
+                $message    = "Category failed to update";
+            }
+            return array($response,$message);
+        }
+
         function getCategorybyID($id = null){
             $sql = "SELECT * FROM tekiro_category where id = '$id'";
             $query  = $this->db->query($sql);
             $ret = "";
             if($query->num_rows()>0){
                 $row = $query->row();
-                return array($row->title,$row->title_id,$row->subtitle,$row->subtitle_id,$row->path);
+                return array($row->id,$row->title,$row->title_id,$row->subtitle,$row->subtitle_id,$row->path);
             }else{
                 return false;
             }           

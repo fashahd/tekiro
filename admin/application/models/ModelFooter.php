@@ -24,6 +24,31 @@
             $query  = $this->db->insert("media",$data);
         }
 
+        function getSocialMedia(){
+            $sql = "SELECT * FROM tekiro_social";
+            $query  = $this->db->query($sql);
+            $ret = "";
+            if($query->num_rows()>0){
+                foreach($query->result() as $row){
+                    $ret .='
+                    <li class="list-group-item">                                
+                        <div class="d-flex no-block align-items-center">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="'.$row->icon.'"></i></span>
+                                </div>
+                                <input name="social['.$row->id.']" type="text" class="form-control" value="'.$row->username.'" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </li>
+                    ';
+                }
+            }else{
+                $ret = "";
+            }
+            return $ret;
+        }
+
         function getAward(){
             $sql = "SELECT * FROM `media` where page = 'footer'";
             $query  = $this->db->query($sql);

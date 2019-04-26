@@ -22,6 +22,24 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="card border-right border-info">
+                    <div class="card-header">
+                        <h4 class="card-title float-left">Social Media</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="updateSocial">
+                            <ul class="list-group">
+                                <?=$social_media?>
+                            </ul>
+                            <br>
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Row -->
         <div class="row">
             <div class="col-12">

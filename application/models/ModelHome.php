@@ -1,5 +1,65 @@
 <?php
 	class ModelHome extends CI_Model {
+        function getFooterSocial(){
+            $sql = "SELECT * FROM tekiro_social";
+            $query  = $this->db->query($sql);
+            $ret = "";
+            if($query->num_rows()>0){
+                foreach($query->result() as $row){
+                    $ret .='
+                    <div class="col medium-3 small-12 large-3"  >
+                        <div class="col-inner box-shadow-1 box-shadow-3-hover"  >
+                            <div class="banner has-hover" id="banner-'.$row->id.'">
+                                <div class="banner-inner fill">
+                                    <div class="banner-bg fill" >
+                                        <div class="bg fill bg-fill "></div>																		
+                                        <div class="is-border" style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;"></div>
+                                    </div><!-- bg-layers -->
+                                    <div class="banner-layers container">
+                                        <a href="https://www.facebook.com/'.$row->username.'/" target="_blank" class="fill">
+                                            <div class="fill banner-link"></div>
+                                        </a>
+                                        <div id="text-box-1537388520" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
+                                            <div class="text dark">												  
+                                                <div class="text-inner text-center">
+                                                    <a href="https://www.facebook.com/'.$row->username.'/" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
+                                                        <i class="'.$row->fa_icon.'" ></i>  
+                                                        <span>@'.$row->username.'</span>
+                                                    </a>
+                                                </div>
+                                            </div><!-- text-box-inner -->
+                                                    
+                                            <style scope="scope">
+
+                                            #text-box-1537388520 {
+                                                width: 77%;
+                                            }
+                                            #text-box-1537388520 .text {
+                                                font-size: 100%;
+                                            }
+                                            </style>
+                                        </div><!-- text-box -->
+                                    </div><!-- .banner-layers -->
+                                </div><!-- .banner-inner -->
+
+                                    
+                                <style scope="scope">
+
+                                #banner-'.$row->id.' {
+                                    padding-top: 60px;
+                                    background-color: '.$row->background.';
+                                }
+                                </style>
+                            </div><!-- .banner -->
+                        </div>
+                    </div>
+                    ';
+                }
+            }else{
+                $ret = "";
+            }
+            return $ret;
+        }
 		function getFooterLeft(){
             $sql    = "SELECT * FROM tekiro_general";
             $query  = $this->db->query($sql);

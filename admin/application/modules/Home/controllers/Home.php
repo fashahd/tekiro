@@ -57,6 +57,61 @@ class Home extends MX_Controller {
 		return;
 	}
 
+	function updateCategory(){
+		if($_FILES["media"]["name"] != ''){
+			$validextensions = array("jpeg", "jpg", "png");
+			$temporary 		= explode(".", $_FILES["media"]["name"]);
+			$file_extension = end($temporary);
+			if ((($_FILES["media"]["type"] == "image/png") || ($_FILES["media"]["type"] == "image/jpg") || ($_FILES["media"]["type"] == "image/jpeg")) && ($_FILES["media"]["size"] < 2097152) && in_array($file_extension, $validextensions)) {
+				if ($_FILES["media"]["error"] > 0)
+				{
+					$response = "error";
+					$message = "Upload Image Error";
+				}else
+				{
+					$url = base_url()."appsources/media/";
+					$image=basename($_FILES['media']['name']);
+					$image=str_replace(' ','|',$image);
+					$type = explode(".",$image);
+					$type = $type[count($type)-1];
+					$tmppath="appsources/media/".uniqid(rand()).".".$type; // uniqid(rand()) function generates unique random number.
+					move_uploaded_file($_FILES['media']['tmp_name'],$tmppath);
+					$message = "Category Added";
+					$image1 = $tmppath;
+					$data = array(
+						"path" 		=> $image1,
+						"title" 	=> $_POST["title"],
+						"title_id" 	=> $_POST["title_id"],
+						"subtitle" 	=> $_POST["subtitle"],
+						"subtitle_id" 	=> $_POST["subtitle_id"],
+					);
+					$return = $this->ModelHome->updateCategory($_POST["id"],$data);
+					list($response,$message)=$return;
+				}
+			}else
+			{
+				$message = "Image Size More Than 2MB";
+				$response = "max_upload";
+			}
+		}else{
+			$data = array(
+				"title" 	=> $_POST["title"],
+				"title_id" 	=> $_POST["title_id"],
+				"subtitle" 	=> $_POST["subtitle"],
+				"subtitle_id" 	=> $_POST["subtitle_id"],
+			);
+			$return = $this->ModelHome->updateCategory($_POST["id"],$data);
+			list($response,$message)=$return;
+		}
+		
+		$data = array(
+			"status" 	=> $response,
+			"message"	=> $message
+		);
+		echo json_encode($data);
+		return;
+	}
+
 	function addCategory(){
 		if($_FILES["media"]["name"] != ''){
 			$validextensions = array("jpeg", "jpg", "png");
