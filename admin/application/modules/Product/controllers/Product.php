@@ -9,13 +9,19 @@ class Product extends MX_Controller {
 		if(!$this->session->userdata("userlogin")){
 			redirect('/auth/login', 'refresh');
 		}
+		$this->load->model("ModelProduct");
 	}
 
 	public function index()
 	{
 		$session = $this->session->userdata("userlogin");
-		$data["name"]	= $session["name"];
-		$data["module"] = "Product";
+		$data["category"]	= $this->ModelProduct->getProduct();
+		$data["name"]		= $session["name"];
+		$data["module"] 	= "Product";
 		$this->layout->content('index',$data);
+	}
+
+	function addProduct(){
+		
 	}
 }

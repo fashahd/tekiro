@@ -35,6 +35,70 @@ $('#updateSocial').submit(function(event) {
 	});
 });
 
+$('#formProduct').submit(function(event) {
+	event.preventDefault();
+	var formData = new FormData(this);
+	formData.append('title', $("#title").val());
+	formData.append('title_id', $("#title_id").val());
+	$('.msg').hide();
+	$('.progress').show();	
+	$.ajax({
+		xhr : function() {
+			var xhr = new window.XMLHttpRequest();
+			xhr.upload.addEventListener('progress', function(e){
+				if(e.lengthComputable){
+					console.log('Bytes Loaded : ' + e.loaded);
+					console.log('Total Size : ' + e.total);
+					console.log('Persen : ' + (e.loaded / e.total));
+					
+					var percent = Math.round((e.loaded / e.total) * 100);
+					
+					$('#progressBar').attr('aria-valuenow', percent).css('width', percent + '%').text(percent + '%');
+				}
+			});
+			return xhr;
+		},
+		
+		type : 'POST',
+		url : toUrl+'product/addProduct',
+		data : formData,
+		processData : false,
+		contentType : false,
+		dataType: "json",
+		success : function(response){
+			console.log(response);
+			$('form')[0].reset();
+			$('.progress').hide();
+			$('.msg').show();
+			if(response.status != "success"){
+				swal({
+					title: "Oopss!",
+					text: response.message,
+					icon: "warning",
+					button: "OK",
+				});
+			}else{			
+				swal({
+					title: "Good job!",
+					text: response.message,
+					icon: "success",
+					button: "OK",
+				}).then((value) => {
+					window.location.href=toUrl+'home';
+				});
+			}
+		},error: function(xhr, ajaxOptions, thrownError){            
+			console.log(xhr.responseText);
+			swal({
+				title: "Oopss!",
+				text: "Failed To Connect Server",
+				icon: "warning",
+				button: "OK",
+			});
+		}
+	});
+});
+
 $('#formCategory').submit(function(event) {
 	event.preventDefault();
 	var formData = new FormData(this);

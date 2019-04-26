@@ -1,5 +1,5 @@
 <?php
-	class ModelHome extends CI_Model {
+	class ModelProduct extends CI_Model {
 
         function savecategory($data = null){
             $query  = $this->db->insert("tekiro_category",$data);
@@ -30,8 +30,8 @@
             }           
         }
 
-        function getCategory(){
-            $sql = "SELECT * FROM tekiro_category";
+        function getProduct(){
+            $sql = "SELECT * FROM tekiro_product";
             $query  = $this->db->query($sql);
             $ret = "";
             if($query->num_rows()>0){
@@ -39,7 +39,7 @@
                     $ret .='
                     <li class="list-group-item">                                
                         <div class="d-flex no-block align-items-center">
-                        <img class="mr-3 img-fluid w-25" src="'.base_url().$row->path.'" alt="Generic placeholder image">
+                        <img class="mr-3 img-fluid w-25" src="'.base_url().$row->image_path.'" alt="Generic placeholder image">
                             <div>
                                 '.$row->title.'
                             </div>
