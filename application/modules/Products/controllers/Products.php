@@ -20,7 +20,13 @@ class Products extends MX_Controller {
 	 */
 	public function front()
 	{
+		$this->load->model("ModelProduct");
+		$this->load->model("ModelHome");
 		$data["module"] = "Products";
+		$data["product"] 	= $this->ModelProduct->getProduct();
+		$data["about"] 		= $this->ModelHome->getFooterLeft();
+		$data["award"] 		= $this->ModelHome->getFooterRight();
+		$data["social"] 	= $this->ModelHome->getFooterSocial();
 		$this->layout->content('front',$data);
 	}
 }

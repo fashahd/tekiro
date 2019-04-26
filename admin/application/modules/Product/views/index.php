@@ -80,7 +80,7 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <?=$category?>
+                            <?=$product?>
                         </ul>
                     </div>
                 </div>
