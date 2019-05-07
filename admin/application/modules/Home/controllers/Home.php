@@ -49,7 +49,7 @@ class Home extends MX_Controller {
 			}else{
 				$data = array(
 					"status" 	=> 400,
-					"message"	=> "Failed To Category Media"
+					"message"	=> "Failed To Delete Category"
 				);
 			}
 		}

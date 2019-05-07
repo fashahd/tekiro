@@ -18,9 +18,31 @@ class Event extends MX_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model("ModelHome");
+		$this->load->model("ModelEvent");
+	}
+
 	public function front()
 	{
+		$data["event"] 		= $this->ModelEvent->getEvent();
+		$data["about"] 		= $this->ModelHome->getFooterLeft();
+		$data["award"] 		= $this->ModelHome->getFooterRight();
+		$data["social"] 	= $this->ModelHome->getFooterSocial();
 		$data["module"] = "Event";
 		$this->layout->content('front',$data);
+	}
+	
+	public function read($slug)
+	{
+		$data["event"] 		= $this->ModelEvent->getEventByID($slug);
+		$data["about"] 		= $this->ModelHome->getFooterLeft();
+		$data["award"] 		= $this->ModelHome->getFooterRight();
+		$data["social"] 	= $this->ModelHome->getFooterSocial();
+		$data["module"] = "Event";
+		$this->layout->content('read',$data);
 	}
 }

@@ -2,7 +2,7 @@
 	class ModelEvent extends CI_Model {
 
 		function getEvent(){
-            $sql    = " SELECT * FROM `tekiro_event`";
+            $sql    = " SELECT * FROM `tekiro_event` order by created_date desc";
             $query  = $this->db->query($sql);
             $ret    = "";
             if($query->num_rows()>0){

@@ -1,5 +1,95 @@
 document.addEventListener('contextmenu', event => event.preventDefault());
 
+$('#editFaq').submit(function(event) {
+	event.preventDefault();
+	var formData = new FormData(this);
+	formData.append('content', CKEDITOR.instances.content.getData());
+	formData.append('content_id', CKEDITOR.instances.content_id.getData());
+	$.ajax({		
+		type : 'POST',
+		url : toUrl+'faq/updateFAQ',
+		data : formData,
+		processData : false,
+		contentType : false,
+		dataType: "json",
+		success : function(response){
+			$('form')[0].reset();
+			$('.progress').hide();
+			$('.msg').show();
+			if(response.status != 200){
+				swal({
+					title: "Oopss!",
+					text: response.message,
+					icon: "warning",
+					button: "OK",
+				});
+			}else{			
+				swal({
+					title: "Good job!",
+					text: response.message,
+					icon: "success",
+					button: "OK",
+				}).then((value) => {
+					window.location.reload();
+				});
+			}
+		},error: function(xhr, ajaxOptions, thrownError){            
+			console.log(xhr.responseText);
+			swal({
+				title: "Oopss!",
+				text: "Failed To Connect Server",
+				icon: "warning",
+				button: "OK",
+			});
+		}
+	});
+});
+
+$('#formFAQ').submit(function(event) {
+	event.preventDefault();
+	var formData = new FormData(this);
+	formData.append('content', CKEDITOR.instances.content.getData());
+	formData.append('content_id', CKEDITOR.instances.content_id.getData());
+	$.ajax({		
+		type : 'POST',
+		url : toUrl+'faq/addFAQ',
+		data : formData,
+		processData : false,
+		contentType : false,
+		dataType: "json",
+		success : function(response){
+			$('form')[0].reset();
+			$('.progress').hide();
+			$('.msg').show();
+			if(response.status != 200){
+				swal({
+					title: "Oopss!",
+					text: response.message,
+					icon: "warning",
+					button: "OK",
+				});
+			}else{			
+				swal({
+					title: "Good job!",
+					text: response.message,
+					icon: "success",
+					button: "OK",
+				}).then((value) => {
+					window.location.reload();
+				});
+			}
+		},error: function(xhr, ajaxOptions, thrownError){            
+			console.log(xhr.responseText);
+			swal({
+				title: "Oopss!",
+				text: "Failed To Connect Server",
+				icon: "warning",
+				button: "OK",
+			});
+		}
+	});
+});
+
 $('#updateformEvent').submit(function(event) {
 	event.preventDefault();
 	var formData = new FormData(this);
@@ -431,6 +521,58 @@ $('#editCategory').submit(function(event) {
 		}
 	});
 });
+
+function confirmDeleteFAQ(id = null){				
+	swal({
+		title: "Are You Sure ?",
+		text: "FAQ Delete Permanently",
+		icon: "warning",
+		buttons: {
+			cancel: "Cancel",
+			catch: {
+			  	text: "Confirm",
+			  	value: "confirm",
+			}
+		},
+	}).then((value) => {
+		switch (value) { 
+			case "defeat":
+			  	break;
+		 
+			case "confirm":
+				$.ajax({
+					type : 'POST',
+					url  : toUrl+"faq/deletefaq",
+					data : {id:id},
+					dataType: "json",
+					success: function(data){
+						console.log(data);
+						if(data.status == 200){
+							swal({
+								title: "Good job!",
+								text: data.message,
+								icon: "success",
+								button: "OK",
+							}).then((value) => {
+								window.location.reload();
+							});
+						}else{
+							swal({
+								title: "Oopss!",
+								text: data.message,
+								icon: "warning",
+								button: "OK",
+							});
+						}
+					},error: function(xhr, ajaxOptions, thrownError){            
+						console.log(xhr.responseText);
+						$("#loginbutton").html('<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>');
+					}
+				});
+			 	break;
+		}
+	});
+}
 
 function confirmDeleteEvent(id = null){				
 	swal({

@@ -18,8 +18,16 @@ class Contact extends MX_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model("ModelHome");
+	}
 	public function front()
 	{
+		$data["about"] 		= $this->ModelHome->getFooterLeft();
+		$data["award"] 		= $this->ModelHome->getFooterRight();
+		$data["social"] 	= $this->ModelHome->getFooterSocial();
 		$data["module"] = "Event";
 		$this->layout->content('front',$data);
 	}

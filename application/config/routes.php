@@ -55,5 +55,6 @@ $route['products'] = 'products/front';
 $route['event'] = 'event/front';
 $route['contact'] = 'contact/front';
 $route['faq'] = 'faq/front';
+$route['event/(:any)'] = "event/read/$1";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
