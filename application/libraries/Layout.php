@@ -149,6 +149,7 @@
                 <script type="text/javascript" src="'.base_url().'appsources/js/owl.carousel.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/imagesloaded.pkgd.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/underscore.min.js"></script>
+                <script src="'.base_url().'admin/appsources/plugins/sweetalert/sweetalert.min.js"></script>
                 <script type="text/javascript" src="'.base_url().'appsources/js/flatsome.js"></script>
             ';
             return $ret;

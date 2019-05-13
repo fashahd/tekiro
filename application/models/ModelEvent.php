@@ -56,10 +56,10 @@
 												<div class="blog-share text-center">
 													<div class="is-divider medium"></div>
 													<div class="social-icons share-icons share-row relative icon-style-outline ">
-														<a href="whatsapp://send?text=TEKIRO%2520Truck%2520Mobile%2520Display%2520%2526%25238211%253B%2520Roadshow%2520Schedule%20-%20https%3A%2F%2Ftekiro.com%2Ftekiro-truck-mobile-display-2%2F" data-action="share/whatsapp/share" class="icon button circle is-outline tooltip whatsapp show-for-medium tooltipstered"><i class="fa fa-phone"></i></a>
-														<a href="//www.facebook.com/sharer.php?u=https://tekiro.com/tekiro-truck-mobile-display-2/" data-label="Facebook" onclick="window.open(this.href,this.title,width=500,height=500,top=300px,left=300px);  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip facebook tooltipstered"><i class="fa fa-facebook"></i></a>
-														<a href="//twitter.com/share?url=https://tekiro.com/tekiro-truck-mobile-display-2/" onclick="window.open(this.href,this.title,width=500,height=500,top=300px,left=300px);  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip twitter tooltipstered"><i class="fa fa-twitter"></i></a>
-														<a href="//plus.google.com/share?url=https://tekiro.com/tekiro-truck-mobile-display-2/" target="_blank" class="icon button circle is-outline tooltip google-plus tooltipstered" onclick="window.open(this.href,this.title,width=500,height=500,top=300px,left=300px);  return false;" rel="nofollow"><i class="fa fa-google-plus"></i></a>
+														<a style="padding-top: 8px" href="whatsapp://send?text='.base_url().'event/'.$row->slug.'" data-action="share/whatsapp/share" class="icon button circle is-outline tooltip whatsapp show-for-medium tooltipstered"><i class="fa fa-phone"></i></a>
+														<a style="padding-top: 8px" href="//www.facebook.com/sharer.php?u='.base_url().'event/'.$row->slug.'" data-label="Facebook" onclick="window.open(this.href,this.title,width=500,height=500,top=300px,left=300px);  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip facebook tooltipstered"><i class="fa fa-facebook"></i></a>
+														<a style="padding-top: 8px" href="//twitter.com/share?url='.base_url().'event/'.$row->slug.'" onclick="window.open(this.href,this.title,width=500,height=500,top=300px,left=300px);  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip twitter tooltipstered"><i class="fa fa-twitter"></i></a>
+														<a style="padding-top: 8px" href="//plus.google.com/share?url='.base_url().'event/'.$row->slug.'" target="_blank" class="icon button circle is-outline tooltip google-plus tooltipstered" onclick="window.open(this.href,this.title,width=500,height=500,top=300px,left=300px);  return false;" rel="nofollow"><i class="fa fa-google-plus"></i></a>
 													</div>								
 												</div>
 											</div>
@@ -69,7 +69,7 @@
 													Automotive
 												</a>. 
 												Bookmark the 
-												<a href="https://tekiro.com/tekiro-truck-mobile-display-2/" title="Permalink to TEKIRO Truck Mobile Display – Roadshow Schedule" rel="bookmark">
+												<a href="'.base_url().'event/'.$row->slug.'" title="Permalink to '.$row->title.'" rel="bookmark">
 													permalink
 												</a>.
 											</footer>

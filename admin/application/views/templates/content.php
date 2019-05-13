@@ -139,6 +139,12 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark" href="<?=base_url()?>contact" aria-expanded="false">
+                                <i class="mdi mdi-contacts"></i>
+                                <span class="hide-menu">Contact</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark" href="<?=base_url()?>faq" aria-expanded="false">
                                 <i class="mdi mdi-comment-question"></i>
                                 <span class="hide-menu">FAQ</span>

@@ -41,10 +41,10 @@
                                             </div>
                                             <script data-cfasync="false">var option_df_3148 = {"outline":[],"forceFit":"true","autoEnableOutline":"false","autoEnableThumbnail":"false","overwritePDFOutline":"false","direction":"1","pageMode":"0","source":"'.base_url().'admin/'.$row->pdf_path.'","wpOptions":"true"};</script>
                                         </p>
-                                        <h2 style="text-align: center;">'.$row->title.'</h2>
+                                        <h2 style="text-align: center;padding-top:8px">'.$row->title.'</h2>
                                         <p style="text-align: center;">
                                             <a href="'.base_url().'admin/'.$row->pdf_path.'" target="_blank" class="button primary is-primary is-medium"  >
-                                                <span>DOWNLOAD &amp; PRINT</span>
+                                                <span style="padding-top:6px">'.$this->lang->line('download_print').'</span>
                                             </a>
                                         </p>
                                     </div>

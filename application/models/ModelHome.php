@@ -16,13 +16,13 @@
                                         <div class="is-border" style="border-color:rgb(13, 177, 75);border-width:5px 5px 5px 5px;"></div>
                                     </div><!-- bg-layers -->
                                     <div class="banner-layers container">
-                                        <a href="https://www.facebook.com/'.$row->username.'/" target="_blank" class="fill">
+                                        <a href="'.$row->url.$row->username.'/" target="_blank" class="fill">
                                             <div class="fill banner-link"></div>
                                         </a>
                                         <div id="text-box-1537388520" class="text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text">
                                             <div class="text dark">												  
                                                 <div class="text-inner text-center">
-                                                    <a href="https://www.facebook.com/'.$row->username.'/" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
+                                                    <a href="'.$row->url.$row->username.'/" target="_blank" class="button white is-underline is-xxlarge lowercase expand"  >
                                                         <i class="'.$row->fa_icon.'" ></i>  
                                                         <span>@'.$row->username.'</span>
                                                     </a>
@@ -80,6 +80,10 @@
             $ret = "";
             if($query->num_rows()>0){
                 foreach($query->result() as $row){
+                    if($this->session->userdata('site_lang') == "indonesia"){
+                        $row->title     = $row->title_id;
+                        $row->subtitle  = $row->subtitle_id;
+                    }
                     $ret .='                    
 						<div class="col medium-4 small-12 large-4"  >
 							<div class="col-inner">
@@ -96,7 +100,7 @@
 														<h2 class="uppercase"><strong>'.$row->title.'</strong></h2>
 														<h4 class="uppercase">'.$row->subtitle.'</h4>
 														<a href="'.base_url().'products/" target="_self" class="button white is-outline"  >
-															<span>See More</span>
+															<span>'.$this->lang->line('see_more').'</span>
 														</a>
 													</div>
 												</div><!-- text-box-inner -->

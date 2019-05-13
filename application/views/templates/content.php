@@ -15,29 +15,55 @@
 					    </div>
 					    <!-- Mobile Left Elements -->
 					    <div class="flex-col show-for-medium flex-left">
+							<?php if($this->session->userdata('site_lang') == "indonesia"){ ?>							
                             <ul class="mobile-nav nav nav-left ">
                                 <li class="has-dropdown header-language-dropdown">
-                                <a href="#">
-                                    EN
-                                    <i class="image-icon"><img src="<?=base_url()?>appsources/image/us.png"/></i>
-                                    <i class="fa fa-angle-down" ></i>
-                                </a>
-                                <ul class="nav-dropdown nav-dropdown-default">
-                                    <li>
-										<a href="<?=base_url(); ?>LanguageSwitcher/switchLang/indonesia" hreflang="id">
-											<i class="fa fa-image"><img src="<?=base_url()?>appsources/image/id.png"/></i>
-											ID
-										</a>
-                                    </li>
-                                    <li>
-										<a href="<?=base_url(); ?>LanguageSwitcher/switchLang/english" hreflang="en">
-											<i class="fa fa-image"><img src="<?=base_url()?>appsources/image/us.png"/></i>
-											EN
-										</a>
-                                    </li>
-                                </ul>
+									<a href="#">
+										ID
+										<i class="image-icon"><img src="<?=base_url()?>appsources/image/us.png"/></i>
+										<i class="fa fa-angle-down" ></i>
+									</a>
+									<ul class="nav-dropdown nav-dropdown-default">
+										<li>
+											<a href="<?=base_url(); ?>LanguageSwitcher/switchLang/english" hreflang="en">
+												<img src="<?=base_url()?>appsources/image/us.png"/>
+												EN
+											</a>
+										</li>
+										<li>
+											<a href="<?=base_url(); ?>LanguageSwitcher/switchLang/indonesia" hreflang="id">
+												<img src="<?=base_url()?>appsources/image/id.png"/>
+												ID
+											</a>
+										</li>
+									</ul>
                                 </li>
                             </ul>
+							<?php } else { ?>
+                            <ul class="mobile-nav nav nav-left ">
+                                <li class="has-dropdown header-language-dropdown">
+									<a href="#">
+										EN
+										<i class="image-icon"><img src="<?=base_url()?>appsources/image/us.png"/></i>
+										<i class="fa fa-angle-down" ></i>
+									</a>
+									<ul class="nav-dropdown nav-dropdown-default">
+										<li>
+											<a href="<?=base_url(); ?>LanguageSwitcher/switchLang/indonesia" hreflang="id">
+												<img src="<?=base_url()?>appsources/image/id.png"/>
+												ID
+											</a>
+										</li>
+										<li>
+											<a href="<?=base_url(); ?>LanguageSwitcher/switchLang/english" hreflang="en">
+												<img src="<?=base_url()?>appsources/image/us.png"/>
+												EN
+											</a>
+										</li>
+									</ul>
+                                </li>
+                            </ul>
+							<?php } ?>
 					    </div>
                         <!-- Left Elements -->
                         <div class="flex-col hide-for-medium flex-left flex-grow">
@@ -114,26 +140,29 @@
                                                             <div class="text dark">
                                                                 <div class="text-inner text-center">
                                                                     <h2 style="text-align: center;"><span style="color: #0db14b;">
-                                                                        <strong>Subscribe to </strong></span>
-                                                                        <span style="color: #0db14b;"><strong>TEKIRO Tools </strong></span>
-                                                                        <span style="color: #0db14b;"><strong>Newsletter</strong></span>
+                                                                        <strong><?=$this->lang->line('subscribe_title');?></strong>
                                                                     </h2>
                                                                     <p style="text-align: center;">
-                                                                        <span style="color: #ffffff;">Be the priority to get the latest updates on TEKIRO products, events and promotions.</span>
+                                                                        <span style="color: #ffffff;"><?=$this->lang->line('subtitle_subscribe');?></span>
                                                                     </p>
                                                                     <p style="text-align: center;">
 	                                                                    <section id="yikes-mailchimp-container-2" class="yikes-mailchimp-container yikes-mailchimp-container-2 ">
                                                                         <form id="footer-embed-en-2" class="yikes-easy-mc-form yikes-easy-mc-form-2 yikes-mailchimp-form-inline  footer-id" method="POST" data-attr-form-id="2">
 													                        <label for="yikes-easy-mc-form-2-NAME"  class="label-inline NAME-label yikes-mailchimp-field-required ">
-                                                                                <input id="yikes-easy-mc-form-2-NAME"  name="NAME"  placeholder="Full Name"  class="yikes-easy-mc-text field-no-label"  required="required" type="text"  value="">
+                                                                                <input id="yikes-easy-mc-form-2-NAME"  name="NAME"  placeholder="<?=$this->lang->line('fullname');?>"  class="yikes-easy-mc-text field-no-label"  required="required" type="text"  value="">
                                                                             </label>
                                                                             <label for="yikes-easy-mc-form-2-EMAIL"  class="label-inline EMAIL-label yikes-mailchimp-field-required ">
-                                                                                <input id="yikes-easy-mc-form-2-EMAIL"  name="EMAIL"  placeholder="Email Address"  class="yikes-easy-mc-email field-no-label"  required="required" type="email"  value="">
+                                                                                <input id="yikes-easy-mc-form-2-EMAIL"  name="EMAIL"  placeholder="<?=$this->lang->line('email');?>"  class="yikes-easy-mc-email field-no-label"  required="required" type="email"  value="">
                                                                             </label>
                                                                             <input type="hidden" name="yikes-mailchimp-honeypot" id="yikes-mailchimp-honeypot" value="">
                                                                             <input type="hidden" name="yikes-mailchimp-associated-list-id" id="yikes-mailchimp-associated-list-id" value="def53f2e77">
                                                                             <input type="hidden" name="yikes-mailchimp-submitted-form" id="yikes-mailchimp-submitted-form" value="2">
-                                                                            <label class="empty-form-inline-label submit-button-inline-label"><span class="empty-label labels-hidden">&nbsp;</span><button type="submit" class="yikes-easy-mc-submit-button yikes-easy-mc-submit-button-2 btn btn-primary footer-id-submit"> <span class="yikes-mailchimp-submit-button-span-text">Subscribe</span></button></label>				<!-- Nonce Security Check -->
+                                                                            <label class="empty-form-inline-label submit-button-inline-label">
+																				<span class="empty-label labels-hidden">&nbsp;</span>
+																				<button type="submit" class="yikes-easy-mc-submit-button yikes-easy-mc-submit-button-2 btn btn-primary footer-id-submit"> 
+																					<span class="yikes-mailchimp-submit-button-span-text"><?=$this->lang->line('subscribe');?></span>	
+																				</button>
+																			</label>				<!-- Nonce Security Check -->
                                                                             <input type="hidden" id="yikes_easy_mc_new_subscriber" name="yikes_easy_mc_new_subscriber" value="072601a14c" /><input type="hidden" name="_wp_http_referer" value="/" />
                                                                         </form>
                                                                     </p>
@@ -219,3 +248,49 @@
 </div><!-- #mobile-menu -->
 <?=$this->layout->headersourcejs()?>
 </body>
+<script>
+	$("#sendcontact").submit(function(e){		
+		e.preventDefault();
+		var formData 	= new FormData(this);
+		var btnsent		= $("#btnsent").html();
+		$("#btnsent").html("Sending ......");
+		$.ajax({		
+			type : 'POST',
+			url : '<?=base_url()?>contact/sendcontact',
+			data : formData,
+			processData : false,
+			contentType : false,
+			dataType: "json",
+			success : function(response){
+				console.log(response);
+				if(response.status != 200){
+					swal({
+						title: "Oopss!",
+						text: response.message,
+						icon: "warning",
+						button: "OK",
+					});
+				}else{			
+					swal({
+						title: "Good job!",
+						text: response.message,
+						icon: "success",
+						button: "OK",
+					}).then((value) => {
+						window.location.reload();
+					});
+				}
+				$("#btnsent").html(btnsent);
+			},error: function(xhr, ajaxOptions, thrownError){            
+				console.log(xhr.responseText);
+				swal({
+					title: "Oopss!",
+					text: "Failed To Connect Server",
+					icon: "warning",
+					button: "OK",
+				});
+				$("#btnsent").html(btnsent);
+			}
+		});
+	});
+</script>
